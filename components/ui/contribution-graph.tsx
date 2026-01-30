@@ -378,7 +378,10 @@ export const ContributionGraphCalendar = ({
 
   return (
     <div
-      className={cn("max-w-full overflow-x-auto overflow-y-hidden", className)}
+      className={cn(
+        "max-w-full overflow-x-auto thin-scrollbar overflow-y-hidden",
+        className
+      )}
       {...props}>
       <svg
         className="block overflow-visible"
