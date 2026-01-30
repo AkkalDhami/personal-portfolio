@@ -10,7 +10,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-20 mb-10 border-t border-border/40 pt-12 pb-6 relative group">
+    <footer className="mt-20 px-3 mb-10 border-t border-border/40 pt-12 pb-6 relative group">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <div className="space-y-6">
           <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export function Footer() {
         size={18}
         offset={5}
         hoverOffset={0}
-        className="opacity-100 text-primary"
+        className="text-primary"
       />
     </footer>
   );
