@@ -230,3 +230,7 @@
     @apply hover:border-neutral-500 dark:hover:border-neutral-400 duration-300;
   }
 }
+
+.thin-scrollbar {
+  scrollbar-width: thin;
+}
