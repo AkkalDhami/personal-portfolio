@@ -31,7 +31,7 @@ export default function ProjectsSection({
   details?: boolean;
 }) {
   return (
-    <section id="projects" className="min-h-screen py-16 mb-12 sm:px-4">
+    <section id="projects" className="min-h-screen py-12 mb-12 sm:px-4">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

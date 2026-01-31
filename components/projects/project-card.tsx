@@ -21,7 +21,7 @@ import {
   TooltipContent,
   TooltipTrigger
 } from "@/components/ui/tooltip";
-import { TECH_ICONS } from "../../utils/icon-map";
+import { TECH_ICONS, TechStack } from "@/utils/icon-map";
 
 export function ProjectCard({
   project,
@@ -56,7 +56,9 @@ export function ProjectCard({
 
               <div className="flex flex-wrap gap-2">
                 {project.technologies.slice(0, 3).map((tech, idx) => {
-                  const Icon = TECH_ICONS[tech.name] || TECH_ICONS["Default"];
+                  const Icon =
+                    TECH_ICONS[tech.name.toUpperCase() as TechStack] ||
+                    TECH_ICONS["DEFAULT"];
                   return (
                     <TechBadge key={idx} className="text-sm py-0.5">
                       <div className="flex items-center gap-1.5">
@@ -180,7 +182,9 @@ export function ProjectCard({
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="flex flex-wrap gap-2">
               {project.technologies.map((tech: Tech, idx: number) => {
-                const Icon = TECH_ICONS[tech.name] || TECH_ICONS["Default"];
+                const Icon =
+                  TECH_ICONS[tech.name.toUpperCase() as TechStack] ||
+                  TECH_ICONS["DEFAULT"];
                 return (
                   <TechBadge key={idx} className="text-base">
                     <div className="flex items-center gap-2">
