@@ -25,11 +25,7 @@ export const formatDate = (dateString: string) => {
   });
 };
 
-export default function ProjectsSection({
-  details = false
-}: {
-  details?: boolean;
-}) {
+export function ProjectsSection({ details = false }: { details?: boolean }) {
   return (
     <section id="projects" className="min-h-screen py-12 mb-12 sm:px-4">
       <motion.div

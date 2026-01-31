@@ -42,7 +42,7 @@ const skills = [
   }
 ];
 
-export default function SkillsSection() {
+export function SkillsSection() {
   return (
     <section id="skills" className="bg-background px-4 py-12">
       <motion.div
