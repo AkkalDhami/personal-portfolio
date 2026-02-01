@@ -9,9 +9,7 @@ export async function GitHubContributions() {
   const contributions = await getGitHubContributions();
 
   return (
-    <div className="relative py-12 px-4">
-      <h2 className="sr-only">GitHub Contributions</h2>
-
+    <div className="relative py-12">
       <Suspense fallback={<GitHubContributionFallback />}>
         <GitHubContributionGraph initialData={contributions} />
       </Suspense>

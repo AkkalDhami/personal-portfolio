@@ -114,11 +114,11 @@ export function ContactForm() {
         />
       </div>
 
-      <PrimaryButton type="submit" className="w-full py-2 cursor-pointer">
+      <PrimaryButton type="submit" className="w-full cursor-pointer py-2">
         <div className="flex items-center gap-2">
-          <Send className="h-4 w-4 mr-2" />
+          <Send className="mr-2 h-4 w-4" />
           Send Message
-          <CornerMarkers offset={7} hoverOffset={7} key={"primary-button"} />
+          <CornerMarkers offset={7} hoverOffset={6} key={"primary-button"} />
         </div>
       </PrimaryButton>
     </form>

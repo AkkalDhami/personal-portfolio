@@ -32,7 +32,7 @@ export function ProjectCard({
 }) {
   if (!details) {
     return (
-      <motion.div className="group relative border p-4 transition-all border-neutral-500/40">
+      <motion.div className="group relative border border-neutral-500/40 p-4 transition-all">
         <div className="flex flex-col gap-6 md:flex-row">
           <Link
             href={`/projects/${project.slug}`}
@@ -47,10 +47,10 @@ export function ProjectCard({
 
           <div className="flex flex-1 flex-col justify-between py-1">
             <div className="space-y-3">
-              <h3 className="text-xl font-bold transition-colors group-hover:text-primary md:text-2xl">
+              <h3 className="group-hover:text-primary text-xl font-bold transition-colors md:text-2xl">
                 {project.title}
               </h3>
-              <p className="line-clamp-2 text-muted-foreground md:line-clamp-3">
+              <p className="text-muted-foreground line-clamp-2 md:line-clamp-3">
                 {project.description}
               </p>
 
@@ -60,7 +60,7 @@ export function ProjectCard({
                     TECH_ICONS[tech.name.toUpperCase() as TechStack] ||
                     TECH_ICONS["DEFAULT"];
                   return (
-                    <TechBadge key={idx} className="text-sm py-0.5">
+                    <TechBadge key={idx} className="py-0.5 text-sm">
                       <div className="flex items-center gap-1.5">
                         <Icon className="size-3" />
                         {tech.name}
@@ -69,7 +69,7 @@ export function ProjectCard({
                   );
                 })}
                 {project.technologies.length > 3 && (
-                  <span className="flex items-center text-sm text-muted-foreground">
+                  <span className="text-muted-foreground flex items-center text-sm">
                     +{project.technologies.length - 3} more
                   </span>
                 )}
@@ -121,7 +121,7 @@ export function ProjectCard({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="leading-relaxed text-[15px] text-muted-primary">
+            className="text-muted-primary text-[15px] leading-relaxed">
             {project.description}
           </motion.p>
 
@@ -136,7 +136,7 @@ export function ProjectCard({
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="text-base font-semibold text-muted-primary">
+              className="text-muted-primary text-base font-semibold">
               Key Features:
             </motion.h4>
             <motion.ul
@@ -145,19 +145,17 @@ export function ProjectCard({
               viewport={{ once: true }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="flex flex-col space-y-2">
-              {project.features
-                .slice(0, 4)
-                .map((feature: string, idx: number) => (
-                  <motion.li
-                    key={idx}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="flex items-center text-base font-medium text-muted-foreground">
-                    <Check className="mr-2 h-4 w-4" /> {feature}
-                  </motion.li>
-                ))}
+              {project.features.map((feature: string, idx: number) => (
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="text-muted-foreground flex items-center text-base font-medium">
+                  <Check className="mr-2 h-4 w-4" /> {feature}
+                </motion.li>
+              ))}
             </motion.ul>
           </motion.div>
 
@@ -172,7 +170,7 @@ export function ProjectCard({
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="text-base font-semibold text-muted-primary">
+              className="text-muted-primary text-base font-semibold">
               Technologies:
             </motion.h4>
             <motion.div
@@ -208,7 +206,7 @@ export function ProjectCard({
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="text-base font-semibold text-muted-primary">
+              className="text-muted-primary text-base font-semibold">
               Links:
             </motion.h4>
             <motion.div
@@ -216,50 +214,8 @@ export function ProjectCard({
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="flex flex-wrap gap-6 group">
-              <PrimaryButton
-                variant="secondary"
-                as="a"
-                href={`/projects/${project.slug}`}
-                // target="_blank"
-                className="group relative py-2 font-normal hover:shadow-primary">
-                Project Details
-                <CornerMarkers
-                  offset={9}
-                  hoverOffset={0}
-                  key={"primary-button"}
-                />
-              </PrimaryButton>
-              {project.liveUrl && (
-                <PrimaryButton
-                  as="a"
-                  href={project.liveUrl as Route}
-                  target="_blank"
-                  className="group relative py-2 font-normal hover:shadow-primary">
-                  Live Demo
-                  <CornerMarkers
-                    offset={8}
-                    hoverOffset={0}
-                    key={"primary-button"}
-                  />
-                </PrimaryButton>
-              )}
-
-              {project.githubUrl && (
-                <PrimaryButton
-                  variant="outline"
-                  as="a"
-                  href={project.githubUrl as Route}
-                  target="_blank"
-                  className="group relative py-2 font-normal hover:shadow-primary">
-                  Source Code
-                  <CornerMarkers
-                    offset={8}
-                    hoverOffset={0}
-                    key={"primary-button"}
-                  />
-                </PrimaryButton>
-              )}
+              className="group flex flex-wrap gap-6">
+              <ProjectLinks project={project} details />
             </motion.div>
           </motion.div>
         </CardContent>
@@ -346,13 +302,13 @@ export function ProjectLinks({
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="flex flex-wrap gap-6 group">
+      className="group flex flex-wrap gap-6">
       {project.liveUrl && (
         <PrimaryButton
           as="a"
           href={project.liveUrl as Route}
           target="_blank"
-          className="group relative py-2 font-normal hover:shadow-primary">
+          className="group hover:shadow-primary relative py-2 font-normal">
           Live Demo
           <CornerMarkers offset={8} hoverOffset={0} key={"primary-button"} />
         </PrimaryButton>
@@ -364,7 +320,7 @@ export function ProjectLinks({
           as="a"
           href={project.githubUrl as Route}
           target="_blank"
-          className="group relative py-2 font-normal hover:shadow-primary">
+          className="group hover:shadow-primary relative py-2 font-normal">
           Source Code
           <CornerMarkers offset={8} hoverOffset={0} key={"primary-button"} />
         </PrimaryButton>

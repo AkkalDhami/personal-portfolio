@@ -5,34 +5,36 @@ import { motion } from "motion/react";
 import type { Route } from "next";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
-import { CornerMarkers } from "../ui/corner-markers";
+import { CornerMarkers } from "@/components/ui/corner-markers";
+import { EMAIL, GITHUB_URL, LOCATION, NAME, PHONE } from "@/lib/constants";
 
 export const CONTACT_INFO = [
   {
     label: "Name",
-    value: "Akkal Dhami",
+    value: NAME,
     icon: User
   },
   {
     label: "Github",
     value: "AkkalDhami",
     icon: FaGithub,
-    href: "https://github.com/akkaldhami"
+    href: GITHUB_URL
   },
   {
     label: "Email",
-    value: "dhamiakkal21@gmail.com",
+    value: EMAIL,
     icon: Mail,
-    href: "mailto:dhamiakkal21@gmail.com"
+    href: `mailto:${EMAIL}`
   },
   {
     label: "Phone",
-    value: "+977 9828122071",
-    icon: Phone
+    value: PHONE,
+    icon: Phone,
+    href: `tel:${PHONE}`
   },
   {
     label: "Location",
-    value: "Kathmandu, Nepal",
+    value: LOCATION,
     icon: MapPin
   }
 ];
@@ -41,7 +43,7 @@ export function ContactInfo() {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-xl font-normal mb-4">Contact Information</h3>
+        <h3 className="mb-4 text-xl font-normal">Contact Information</h3>
       </div>
       <div className="grid grid-cols-1 space-y-4">
         {CONTACT_INFO.map((item, index) => (
@@ -55,17 +57,17 @@ export function ContactInfo() {
             <CornerMarkers offset={7} hoverOffset={0} />
             <div className="flex items-center gap-3">
               <div className="relative">
-                <item.icon className="bg-muted/20 border border-border text-muted-primary p-2 size-11" />
+                <item.icon className="bg-muted/20 border-border text-muted-primary size-11 border p-2" />
               </div>
-              <div className="flex flex-col space-y-1 text-primary">
-                <span className="text-xs uppercase tracking-widest font-medium text-muted-foreground">
+              <div className="text-primary flex flex-col space-y-1">
+                <span className="text-muted-foreground text-xs font-medium tracking-widest uppercase">
                   {item.label}
                 </span>
                 {item.href ? (
                   <Link
                     href={item.href as Route}
                     target="_blank"
-                    className="text-sm font-semibold hover:underline decoration-primary underline-offset-4">
+                    className="decoration-primary text-sm font-semibold underline-offset-4 hover:underline">
                     {item.value}
                   </Link>
                 ) : (

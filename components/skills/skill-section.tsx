@@ -44,7 +44,7 @@ const skills = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="bg-background px-4 py-12">
+    <section id="skills" className="relative py-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export function SkillsSection() {
         viewport={{ once: true }}
         className="mb-12">
         <Heading>Skills & Technologies</Heading>
-        <SubHeading className="max-w-2xl mx-0">
+        <SubHeading className="mx-0 max-w-2xl">
           A collection of skills and technologies that I have acquired over the
           years.
         </SubHeading>

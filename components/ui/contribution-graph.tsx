@@ -23,6 +23,8 @@ import {
 } from "react";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { GITHUB_URL } from "@/lib/constants";
 
 export type Activity = {
   date: string;
@@ -379,7 +381,7 @@ export const ContributionGraphCalendar = ({
   return (
     <div
       className={cn(
-        "max-w-full overflow-x-auto thin-scrollbar overflow-y-hidden",
+        "thin-scrollbar max-w-full overflow-x-auto overflow-y-hidden",
         className
       )}
       {...props}>
@@ -390,7 +392,7 @@ export const ContributionGraphCalendar = ({
         width={width}>
         <title>{title}</title>
         {!hideMonthLabels && (
-          <g className="fill-current selection:fill-selection-foreground">
+          <g className="selection:fill-selection-foreground fill-current">
             {monthLabels.map(({ label, weekIndex }) => (
               <text
                 dominantBaseline="hanging"
@@ -453,12 +455,22 @@ export const ContributionGraphTotalCount = ({
   }
 
   return (
-    <div className={cn("text-muted-foreground", className)} {...props}>
+    <div
+      className={cn("text-muted-foreground flex items-center gap-1", className)}
+      {...props}>
       {labels.totalCount
         ? labels.totalCount
             .replace("{{count}}", String(totalCount.toLocaleString("en")))
             .replace("{{year}}", String(year))
         : `${totalCount.toLocaleString("en")} contributions in ${year}`}
+      <span className="text-muted-foreground">on</span>
+      <Link
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-muted-primary hover:text-primary text-xs underline underline-offset-2">
+        GitHub
+      </Link>
     </div>
   );
 };
@@ -481,7 +493,7 @@ export const ContributionGraphLegend = ({
     <div
       className={cn("ml-auto flex items-center gap-0.75", className)}
       {...props}>
-      <span className="mr-1 text-muted-foreground">
+      <span className="text-muted-foreground mr-1">
         {labels.legend?.less || "Less"}
       </span>
       {new Array(maxLevel + 1).fill(undefined).map((_, level) =>
@@ -501,7 +513,7 @@ export const ContributionGraphLegend = ({
           </svg>
         )
       )}
-      <span className="ml-1 text-muted-foreground">
+      <span className="text-muted-foreground ml-1">
         {labels.legend?.more || "More"}
       </span>
     </div>
