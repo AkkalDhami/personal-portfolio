@@ -6,7 +6,7 @@ import { SkillsSection } from "@/components/skills/skill-section";
 
 export default async function Page() {
   return (
-    <div className="px-3 relative">
+    <div className="relative px-4">
       <HeroSection />
       <ProjectsSection />
       <GitHubContributions />

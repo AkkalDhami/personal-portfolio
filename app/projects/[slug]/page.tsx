@@ -17,7 +17,7 @@ export default async function Page(props: PageProps<"/projects/[slug]">) {
     slug as string
   );
   return (
-    <div className="mt-20">
+    <div className="pt-16">
       <div className="p-4">
         <BackButton />
       </div>
@@ -26,7 +26,7 @@ export default async function Page(props: PageProps<"/projects/[slug]">) {
         {previousProject && (
           <PrimaryButton
             variant="secondary"
-            className="py-2 px-4 group font-medium capitalize tracking-normal"
+            className="group px-4 py-2 font-medium tracking-normal capitalize"
             as="a"
             title={previousProject.title}
             href={`/projects/${previousProject.slug}`}>
@@ -43,7 +43,7 @@ export default async function Page(props: PageProps<"/projects/[slug]">) {
         {nextProject && (
           <PrimaryButton
             variant="secondary"
-            className="py-2 px-4 group font-medium capitalize tracking-normal"
+            className="group px-4 py-2 font-medium tracking-normal capitalize"
             as="a"
             title={nextProject.title}
             href={`/projects/${nextProject.slug}`}>

@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased font-inter`}>
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} font-inter antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -44,7 +44,7 @@ export default function RootLayout({
           disableTransitionOnChange>
           <ToastProvider position="top-center">
             <AnchoredToastProvider>
-              <main className="max-w-4xl min-h-screen relative bg-background mx-auto">
+              <main className="bg-background relative mx-auto min-h-screen max-w-3xl">
                 <Navbar />
                 {children}
                 <Footer />
