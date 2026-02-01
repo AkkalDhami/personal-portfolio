@@ -18,6 +18,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted-secondary: var(--muted-secondary);
+  --color-muted-tertiary: var(--muted-tertiary);
   --color-muted-primary: var(--muted-primary);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -82,6 +83,7 @@
   --muted: #f5f5f5;
   --muted-foreground: #525252;
   --muted-primary: #525252;
+  --muted-tertiary: var(--color-neutral-300);
   --accent: #ebebeb;
   --accent-foreground: #000000;
   --destructive: #e54b4f;
@@ -147,6 +149,7 @@
   --secondary-foreground: #ffffff;
   --muted: #1d1d1d;
   --muted-foreground: #a4a4a4;
+  --muted-tertiary: var(--color-neutral-800);
   --muted-primary: #c0c0c0;
   --accent: #333333;
   --accent-foreground: #ffffff;
@@ -212,25 +215,35 @@
   }
 
   .bg-linear-l {
-    @apply bg-linear-to-r from-5% from-background to-card;
+    @apply from-background to-card bg-linear-to-r from-5%;
   }
   .bg-linear-r {
-    @apply bg-linear-to-l from-5% from-background to-card;
+    @apply from-background to-card bg-linear-to-l from-5%;
   }
   .bg-linear-b {
-    @apply bg-linear-to-b from-background to-card;
+    @apply from-background to-card bg-linear-to-b;
   }
   .bg-linear-t {
-    @apply bg-linear-to-t from-background to-card;
+    @apply from-background to-card bg-linear-to-t;
   }
   .primary-border {
-    @apply border-dashed border-neutral-400 dark:border-neutral-700 hover:border-neutral-700 dark:hover:border-neutral-300 duration-300;
+    @apply border-dashed border-neutral-400 duration-300 hover:border-neutral-700 dark:border-neutral-700 dark:hover:border-neutral-300;
   }
   .primary-hover {
-    @apply hover:border-neutral-500 dark:hover:border-neutral-400 duration-300;
+    @apply duration-300 hover:border-neutral-500 dark:hover:border-neutral-400;
   }
 }
 
 .thin-scrollbar {
   scrollbar-width: thin;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px var(--muted-tertiary);
+  color: transparent;
+  font-family: Helvetica, sans-serif;
+}
+
+.text-stroke-primary {
+  -webkit-text-stroke: 2px var(--primary);
 }
