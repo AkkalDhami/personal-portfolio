@@ -4,7 +4,7 @@ import { IconType } from "react-icons";
 export interface IStack {
   label: string;
   value: string;
-  icon: IconType;
+  icon: IconType | string;
   category: string;
 }
 
@@ -94,7 +94,7 @@ export const STACKS: IStack[] = [
     category: "backend"
   },
   {
-    label: "Express",
+    label: "Express.js",
     value: "express",
     icon: TECH_ICONS.EXPRESS,
     category: "backend"
@@ -112,15 +112,27 @@ export const STACKS: IStack[] = [
     category: "tools"
   },
   {
+    label: "Postman",
+    value: "postman",
+    icon: TECH_ICONS.POSTMAN,
+    category: "tools"
+  },
+  {
     label: "Figma",
     value: "figma",
     icon: TECH_ICONS.FIGMA,
     category: "tools"
   },
   {
-    label: "Postman",
-    value: "postman",
-    icon: TECH_ICONS.POSTMAN,
+    label: "VSCode",
+    value: "vscode",
+    icon: TECH_ICONS.VSCODE,
+    category: "tools"
+  },
+  {
+    label: "Cursor",
+    value: "cursor",
+    icon: "/assets/icons/cursor.png",
     category: "tools"
   },
   {
@@ -140,25 +152,11 @@ export const STACKS: IStack[] = [
     value: "npm",
     icon: TECH_ICONS.NPM,
     category: "tools"
-  },
-  {
-    label: "VSCode",
-    value: "vscode",
-    icon: TECH_ICONS.VSCODE,
-    category: "tools"
   }
 ];
 
 export const HOME_PAGE_STACKS = STACKS.filter(stack =>
-  [
-    "nextjs",
-    "typescript",
-    "react",
-    "javascript",
-    "mongodb",
-    "nodejs",
-    "mysql"
-  ].includes(stack.value)
+  ["nextjs", "typescript", "nodejs", "mongodb", "mysql"].includes(stack.value)
 );
 
 export const FRONTEND_STACKS = STACKS.filter(

@@ -16,34 +16,6 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "ecommerce-dashboard",
-    title: "E-commerce Dashboard",
-    description:
-      "A comprehensive admin dashboard for managing online stores with real-time analytics and inventory management.",
-    technologies: [
-      { name: "React" },
-      { name: "Nodejs" },
-      { name: "MongoDB" },
-      { name: "TailwindCSS" }
-    ],
-    thumbnail: "/images/hero.png",
-    images: [
-      "/images/hero.png",
-      "/images/hero.png",
-      "/images/hero.png",
-      "/images/hero.png",
-      "/images/hero.png"
-    ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example/project",
-    features: [
-      "Real-time analytics",
-      "Inventory management",
-      "Sales tracking",
-      "Customer insights"
-    ]
-  },
-  {
     slug: "servercn",
     title: "ServerCN",
     description:
@@ -62,20 +34,23 @@ export const PROJECTS: Project[] = [
       "/images/hero.png",
       "/images/hero.png"
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example/project",
+    liveUrl: "https://servercn.vercel.app/",
+    githubUrl: "https://github.com/akkaldhami/servercn",
     features: [
-      "Real-time analytics",
-      "Inventory management",
-      "Sales tracking",
-      "Customer insights"
+      "Component-First Backend",
+      "CLI-First Workflow",
+      "Architecture-Aware",
+      "Production-Ready by Default",
+      "Database-Aware Setup",
+      "Transparent & Documented",
+      "Dependency-Safe Installs"
     ]
   },
   {
-    slug: "jobify",
-    title: "Jobify",
+    slug: "evanstore",
+    title: "EvanStore Groccery",
     description:
-      "Jobify is a job board for developers. It is a platform where developers can find jobs and companies can find developers.",
+      "EvanStore is a e-commerce platform for grocery shopping. It is a full-stack application built with React, Node.js, and MongoDB.",
     technologies: [
       { name: "React" },
       { name: "Nodejs" },
@@ -90,13 +65,18 @@ export const PROJECTS: Project[] = [
       "/images/hero.png",
       "/images/hero.png"
     ],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example/project",
+    liveUrl: "https://evanstore.onrender.com/",
+    githubUrl: "https://github.com/AkkalDhami/EVANSTORE-GROCCERY",
     features: [
       "Real-time analytics",
       "Inventory management",
       "Sales tracking",
-      "Customer insights"
+      "Customer insights",
+      "User authentication",
+      "Order management",
+      "Product management",
+      "Payment processing",
+      "Shipping integration"
     ]
   }
 ];
