@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { Circle, MoveUpRight } from "lucide-react";
 import { SetupItem } from "@/data/setup";
 import Image from "next/image";
-import { CornerMarkers } from "../ui/corner-markers";
+import { CornerMarkers } from "@/components/ui/corner-markers";
 import Link from "next/link";
 import { Route } from "next";
 

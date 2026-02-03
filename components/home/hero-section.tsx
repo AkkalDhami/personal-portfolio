@@ -89,6 +89,8 @@ export function HeroSection() {
             <PrimaryButton
               variant="outline"
               as="a"
+              target="_blank"
+              rel="noopener noreferrer"
               href="/resume.pdf"
               className="w-full py-3 sm:w-auto">
               Download Resume

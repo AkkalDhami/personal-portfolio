@@ -110,7 +110,7 @@ export function SocialLinks({
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:bg-card-hover primary-border group group flex space-x-3 rounded-none border-[1.5px] px-3 py-3 text-center">
+            className="hover:bg-card-hover group primary-border relative flex w-full space-x-3 rounded-none border-[1.5px] px-3 py-3 text-center">
             <Image
               src={social.icon}
               alt={social.name}

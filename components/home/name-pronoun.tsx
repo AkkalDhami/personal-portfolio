@@ -22,7 +22,7 @@ export function NamePronoun() {
             animate={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="group text-muted-foreground hover:text-primary relative flex cursor-pointer items-center justify-center p-2 transition-colors outline-none"
+            className="group text-muted-foreground hover:text-primary relative hidden cursor-pointer items-center justify-center p-2 transition-colors outline-none"
             aria-label="Listen to pronunciation">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"

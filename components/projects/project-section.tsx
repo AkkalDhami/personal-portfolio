@@ -61,7 +61,7 @@ export function ProjectsSection({ details = false }: { details?: boolean }) {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="my-12">
-        <PrimaryButton className="w-full cursor-default">
+        <PrimaryButton className="w-full cursor-default text-xs sm:text-sm">
           More Projects under Development
         </PrimaryButton>
       </motion.div>

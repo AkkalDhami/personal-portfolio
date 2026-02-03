@@ -64,7 +64,7 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
         <div
           ref={ref}
           className={cn(
-            "flex h-auto items-center justify-center text-sm text-muted-foreground",
+            "text-muted-foreground flex h-auto items-center justify-center text-sm",
             className
           )}>
           No images available
@@ -92,8 +92,8 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
               className={cn(
                 "absolute inset-0 transition-all duration-500 ease-out",
                 activeIndex === index
-                  ? "opacity-100 transform-none"
-                  : "opacity-0 scale-95"
+                  ? "transform-none opacity-100"
+                  : "scale-95 opacity-0"
               )}
               style={{
                 transform:
@@ -125,7 +125,7 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
               <Button
                 variant="secondary"
                 size="icon"
-                className="absolute rounded-none left-2 top-1/2 size-8 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60"
+                className="absolute top-1/2 left-2 size-8 -translate-y-1/2 rounded-none bg-black/40 text-white hover:bg-black/60"
                 onClick={handlePrevious}
                 disabled={isTransitioning}>
                 <ChevronLeft size={16} />
@@ -134,7 +134,7 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
               <Button
                 variant="secondary"
                 size="icon"
-                className="absolute rounded-none right-2 top-1/2 size-8 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60"
+                className="absolute top-1/2 right-2 size-8 -translate-y-1/2 rounded-none bg-black/40 text-white hover:bg-black/60"
                 onClick={handleNext}
                 disabled={isTransitioning}>
                 <ChevronRight size={16} />
@@ -145,15 +145,15 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
 
           {/* Dot Indicator */}
           {showDotIndicator && totalImages > 1 && (
-            <div className="absolute  bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 bg-black/40 backdrop-blur-sm px-2 py-1">
+            <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5 bg-black/40 px-2 py-1 backdrop-blur-sm">
               {images.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => handleImageChange(index)}
                   className={cn(
-                    "h-2 w-2 transition-all duration-300 cursor-pointer",
+                    "h-2 w-2 cursor-pointer transition-all duration-300",
                     activeIndex === index
-                      ? "bg-white scale-110 ring-1 ring-white/50"
+                      ? "scale-110 bg-white ring-1 ring-white/50"
                       : "bg-white/60 hover:bg-white/80"
                   )}
                   aria-label={`View image ${index + 1}`}
@@ -165,12 +165,11 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
 
           {/* Image Counter */}
           {showImageCounter && (
-            <div className="absolute top-2 right-2 bg-black/40 backdrop-blur-sm px-2 py-0.5 text-xs font-medium text-white">
+            <div className="absolute top-2 right-2 bg-black/40 px-2 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
               {activeIndex + 1} / {totalImages}
             </div>
           )}
         </div>
-
         {/* Thumbnail Navigator */}
         {showThumbnailNavigator && totalImages > 1 && (
           <ScrollArea className="w-full">
@@ -180,9 +179,9 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
                   key={index}
                   onClick={() => handleImageChange(index)}
                   className={cn(
-                    "relative w-26 shrink-0 overflow-hidden border transition-all duration-200 aspect-video p-2",
+                    "relative aspect-video w-26 shrink-0 overflow-hidden border p-2 transition-all duration-200",
                     activeIndex === index
-                      ? "ring-1 ring-neutral-500 dark:ring-neutral-400 ring-offset-1"
+                      ? "ring-1 ring-neutral-500 ring-offset-1 dark:ring-neutral-400"
                       : "border border-neutral-500/50"
                   )}
                   disabled={isTransitioning}>
@@ -192,7 +191,7 @@ const DetailSwapCard = React.forwardRef<HTMLDivElement, DetailSwapCardProps>(
                     height={100}
                     alt={`Thumbnail ${index + 1}`}
                     className={cn(
-                      "object-cover cursor-pointer transition-all duration-200",
+                      "cursor-pointer object-cover transition-all duration-200",
                       activeIndex !== index && "grayscale",
                       classNames?.thumbnailImage
                     )}

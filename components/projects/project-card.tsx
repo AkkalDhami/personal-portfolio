@@ -4,7 +4,7 @@ import { Check, LinkIcon } from "lucide-react";
 import type { Tech } from "@/components/projects/tech-badge";
 import type { Project } from "@/data/projects";
 import { TechBadge } from "@/components/projects/tech-badge";
-import { DetailSwapCard } from "@/components/home/card";
+import { DetailSwapCard } from "@/components/projects/card";
 import type { Route } from "next";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { CornerMarkers } from "@/components/ui/corner-markers";
