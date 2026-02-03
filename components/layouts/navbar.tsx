@@ -13,7 +13,8 @@ import { usePathname } from "next/navigation";
 import type { Route } from "next";
 import { isActiveLink } from "@/utils/link";
 import { PrimaryButton } from "../ui/primary-button";
-import { NAME } from "@/lib/constants";
+import { GITHUB_URL, NAME } from "@/lib/constants";
+import { SiGithub } from "react-icons/si";
 
 interface MenuItem {
   label: string;
@@ -103,8 +104,17 @@ export function Navbar() {
 
         {/* Desktop Controls */}
         <div className="flex items-center gap-3">
-          <ThemeToggle />
+          <PrimaryButton
+            variant="default"
+            as="a"
+            href={`${GITHUB_URL}/servercn` as Route}
+            target="_blank"
+            className="relative px-2 py-2 transition-colors">
+            <SiGithub className="size-5" />
 
+            <CornerMarkers offset={7} hoverOffset={3} key={"primary-button"} />
+          </PrimaryButton>
+          <ThemeToggle />
           <PrimaryButton
             variant="secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
