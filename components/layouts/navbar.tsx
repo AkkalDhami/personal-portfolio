@@ -107,7 +107,7 @@ export function Navbar() {
           <PrimaryButton
             variant="default"
             as="a"
-            href={`${GITHUB_URL}/servercn` as Route}
+            href={`${GITHUB_URL}/akkal-dhami` as Route}
             target="_blank"
             className="relative px-2 py-2 transition-colors">
             <SiGithub className="size-5" />
