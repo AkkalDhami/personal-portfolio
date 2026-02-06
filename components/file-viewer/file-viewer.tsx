@@ -1,0 +1,40 @@
+"use client";
+
+import { CODE_THEME_BG } from "@/lib/constants";
+import { useEffect, useState } from "react";
+
+const bg = CODE_THEME_BG;
+
+export default function FileViewer({ content }: { content?: string }) {
+  const [html, setHtml] = useState("");
+
+  useEffect(() => {
+    if (!content) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setHtml("");
+      return;
+    }
+  }, [content]);
+
+  if (!content) {
+    return (
+      <div className="text-muted-foreground flex h-full flex-col items-center justify-center space-y-2.5">
+        <p className="text-2xl font-medium">ServerCN</p>
+        <p className="text-base font-normal">
+          Select a file to view its contents
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="h-full max-h-125 w-full whitespace-nowrap"
+      style={{ backgroundColor: bg }}>
+      <div
+        className="relative [&_pre]:h-full [&_pre]:overflow-x-auto [&_pre]:p-3.5"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </div>
+  );
+}
