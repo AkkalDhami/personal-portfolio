@@ -7,32 +7,25 @@ import { mdxComponents } from "@/components/docs/mdx-components";
 import rehypePrettyCode from "rehype-pretty-code";
 import { DEFAULT_CODE_THEME } from "@/lib/constants";
 import { OnThisPage } from "@/components/docs/on-this-page";
-import type { FileNode } from "@/components/file-viewer/file-tree";
-import BackendStructureViewer from "@/components/file-viewer/backend-structure-viewer";
-import ArchitectureTabs from "@/components/docs/architecture-tabs";
-import PackageManagerTabs from "@/components/docs/package-manager-tabs";
 import { Metadata, Route } from "next";
-import { findNeighbour, RESTRICTED_FOLDER_STRUCTURE_PAGES } from "@/lib/source";
-import Link from "next/link";
+import { findNeighbour } from "@/lib/source";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
-import registry from "@/data/registry.json";
-import { IRegistryItems } from "@/types/registry";
+import { PLAYBOOK_DATA } from "@/data/playbook";
+import { IPlaybook } from "@/types/app.types";
+import { CornerMarkers } from "@/components/ui/corner-markers";
+import { PrimaryButton } from "@/components/ui/primary-button";
 
 export const revalidate = false;
 export const dynamic = "force-dynamic";
 export const dynamicParams = false;
 
-const DOCS_PATH = path.join(process.cwd(), "content/docs");
+const DOCS_PATH = path.join(process.cwd(), "/docs");
 
 export async function generateStaticParams() {
-  const registryParams = registry.items.map(({ meta, docs }) => {
-    const nestedSlugs =
-      meta && (meta.databases || [])
-        ? (meta.databases || []).map(({ slug }) => slug)
-        : [];
+  const registryParams = PLAYBOOK_DATA.map(({ docs }) => {
     const slugArray = docs.replace("/docs/", "").split("/").filter(Boolean);
-    return [...slugArray, ...nestedSlugs];
+    return [...slugArray];
   });
 
   return [...registryParams];
@@ -53,7 +46,7 @@ export async function generateMetadata(props: {
   const source = fs.readFileSync(filePath, "utf8");
   const { data } = matter(source);
   return {
-    title: data.title ?? "Documentation",
+    title: `${data.title}  | Playbook ` ?? "Playbook",
     description:
       data.description ??
       "ServerCN documentation for building modern Node.js backends.",
@@ -92,13 +85,12 @@ export async function generateMetadata(props: {
 const getPrettyCodeOptions = (theme: string) => ({
   theme: {
     dark: theme || "github-dark-high-contrast",
-    light: "github-dark-high-contrast"
+    light: "github-light-default"
   },
   keepBackground: true,
   defaultLang: "plaintext",
   grid: true,
-  lineNumbers: true,
-  defaultLanguage: "ts"
+  lineNumbers: true
 });
 
 function getDocPath(slug?: string[]) {
@@ -111,11 +103,8 @@ function getDocPath(slug?: string[]) {
 
 export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
-  const searchParams = await props.searchParams;
 
   const { slug = [] } = params;
-  const resolvedSearchParams = searchParams;
-  const currentArch = (resolvedSearchParams?.arch as string) ?? "mvc";
 
   const filePath = getDocPath(slug);
   if (!fs.existsSync(filePath)) {
@@ -131,17 +120,9 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
     : { next: undefined, prev: undefined };
 
   const source = fs.readFileSync(filePath, "utf8");
-  const { content, data } = matter(source);
-
-  const mvcStructure = (data.mvc_structure as FileNode[]) || [];
-  const featureStructure = (data.feature_structure as FileNode[]) || [];
-
-  const currentArchStructure =
-    currentArch === "mvc" ? mvcStructure : featureStructure;
+  const { content } = matter(source);
 
   const theme = DEFAULT_CODE_THEME;
-
-  console.log({ theme });
 
   return (
     <div className="flex w-full max-w-3xl gap-8 px-3 sm:p-0">
@@ -157,38 +138,11 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
             }}
           />
         </article>
-        <div className="w-full overflow-x-auto">
-          {(mvcStructure.length > 0 || featureStructure.length > 0) &&
-            currentArchStructure &&
-            lastSlug &&
-            !RESTRICTED_FOLDER_STRUCTURE_PAGES.includes(lastSlug) && (
-              <>
-                <h2 className="mt-8 text-2xl font-semibold tracking-tight">
-                  File &amp; Folder Structure
-                </h2>
-                <ArchitectureTabs current={currentArch || "mvc"} />
-                <BackendStructureViewer
-                  structure={
-                    currentArch === "mvc" ? mvcStructure : featureStructure
-                  }
-                />
-              </>
-            )}
-          {data.command && (
-            <>
-              <h2 className="mt-8 text-2xl font-semibold tracking-tight">
-                Installation
-              </h2>
-              <PackageManagerTabs command={data.command} />
-            </>
-          )}
-        </div>
-
         <div className="mt-14">
           <NextSteps next={next} prev={prev} />
         </div>
       </div>
-      <aside className="no-scrollbar docs-content sticky top-20 hidden max-h-[calc(100vh-2rem)] min-w-64 shrink-0 overflow-y-auto xl:block">
+      <aside className="thin-scrollbar docs-content bg-background sticky top-16 z-1 hidden max-h-[calc(100vh-2rem)] min-w-64 shrink-0 overflow-y-auto px-4 xl:block">
         <OnThisPage />
       </aside>
     </div>
@@ -199,29 +153,43 @@ const NextSteps = ({
   next,
   prev
 }: {
-  next?: IRegistryItems | undefined;
-  prev?: IRegistryItems | undefined;
+  next?: IPlaybook | undefined;
+  prev?: IPlaybook | undefined;
 }) => {
   return (
     <div className="mt-8 flex items-center justify-between">
       {prev && (
-        <div className="flex items-center justify-start">
-          <Link
-            href={`${prev.docs as Route}`}
-            className="bg-muted text-muted-foreground hover:bg-secondary hover:text-foreground flex items-center gap-2 px-3 py-2 text-base font-medium duration-200 sm:py-1.5">
+        <PrimaryButton
+          variant="secondary"
+          className="group px-4 py-2 font-medium tracking-normal capitalize"
+          as="a"
+          title={prev?.title}
+          href={prev.docs as Route}>
+          <div className="flex items-center gap-1">
             <ArrowLeftIcon className="size-4" />
-            <span className="hidden sm:inline">{prev.title}</span>
-          </Link>
-        </div>
+            <span className="hidden sm:inline"> {prev.title}</span>{" "}
+          </div>
+          <CornerMarkers offset={7} hoverOffset={6} className="text-primary" />
+        </PrimaryButton>
       )}
       {next && (
         <div className="flex items-center justify-end">
-          <Link
-            href={`${next.docs as Route}`}
-            className="bg-muted text-muted-foreground hover:bg-secondary hover:text-foreground flex items-center gap-2 px-3 py-2 text-base font-medium duration-200 sm:py-1.5">
-            <span className="hidden sm:inline"> {next.title}</span>{" "}
-            <ArrowRightIcon className="size-4" />
-          </Link>
+          <PrimaryButton
+            variant="secondary"
+            className="group px-4 py-2 font-medium tracking-normal capitalize"
+            as="a"
+            title={next.title}
+            href={next.docs as Route}>
+            <div className="flex items-center gap-1">
+              <span className="hidden sm:inline"> {next.title}</span>{" "}
+              <ArrowRightIcon className="size-4" />
+            </div>
+            <CornerMarkers
+              offset={7}
+              hoverOffset={6}
+              className="text-primary"
+            />
+          </PrimaryButton>
         </div>
       )}
     </div>

@@ -251,8 +251,8 @@
 }
 
 [data-rehype-pretty-code-figure] {
-  max-width: 760px;
-  /* width: 100%; */
+  max-width: 730px;
+  width: 100%;
   position: relative;
 }
 

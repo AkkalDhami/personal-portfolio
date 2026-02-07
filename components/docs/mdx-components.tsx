@@ -2,17 +2,13 @@ import type { MDXComponents } from "mdx/types";
 import { Pre } from "./pre";
 
 import PackageManagerTabs from "./package-manager-tabs";
-import FileTree from "../file-viewer/file-tree";
-import BackendStructureViewer from "../file-viewer/backend-structure-viewer";
 import Code from "./custom-code";
 import Note from "./note";
 import Warning from "./warning";
 
 export const mdxComponents: MDXComponents = {
   pre: Pre,
-  FileTree,
   PackageManagerTabs,
-  BackendStructureViewer,
   Code,
   Note,
   Warning,
@@ -30,7 +26,7 @@ export const mdxComponents: MDXComponents = {
     />
   ),
   h4: props => (
-    <h4 className="mt-4 mb-4 text-sm font-medium tracking-tight" {...props} />
+    <h4 className="mt-4 mb-4 text-lg font-medium tracking-tight" {...props} />
   ),
   p: props => (
     <p className="text-muted-primary mt-4 mb-3 leading-7" {...props} />
@@ -48,5 +44,6 @@ export const mdxComponents: MDXComponents = {
   ),
   ol: props => (
     <ol className="text-muted-primary list-decimal space-y-3 pl-2" {...props} />
-  )
+  ),
+  strong: props => <strong className="text-primary" {...props} />
 };

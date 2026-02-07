@@ -3,8 +3,8 @@ import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
 import { CodeBlock } from "./code-block";
 import { CodeWrapper } from "./code-wrapper";
 import { TerminalIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { CODE_THEME_BG } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 const bg = CODE_THEME_BG;
 
 const managers = {
@@ -32,9 +32,9 @@ export default async function PackageManagerTabs({
           <TabsTab
             key={m}
             value={m}
-            // className={cn(
-            //   "dark:data-[state=active]:bg-editor data-[state=active]:bg-editor flex items-center gap-2 font-medium text-neutral-400 data-[state=active]:text-white data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:text-white"
-            // )}
+            className={cn(
+              "flex items-center gap-2 font-medium text-neutral-400 hover:text-white dark:text-neutral-400"
+            )}
             style={{ backgroundColor: bg }}>
             {m}
           </TabsTab>

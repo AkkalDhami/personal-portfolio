@@ -38,7 +38,7 @@ export function Pre({
         ref={ref}
         {...props}
         className={cn(
-          "thin-scrollbar mt-4 max-h-120 w-full overflow-auto p-4 font-mono leading-relaxed",
+          "thin-scrollbar mt-4 max-h-120 overflow-auto p-4 font-mono leading-relaxed",
           className
         )}
         style={{ backgroundColor: bg }}>
