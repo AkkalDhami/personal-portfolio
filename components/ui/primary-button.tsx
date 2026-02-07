@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import type { ComponentPropsWithoutRef } from "react";
 import React from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 type ButtonVariant = "outline" | "default" | "secondary";
 
@@ -53,12 +54,12 @@ export function PrimaryButton({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { as: _as, href, ...anchorProps } = props;
     return (
-      <motion.a
+      <Link
         href={href}
         className={commonStyles}
         {...(anchorProps as ComponentPropsWithoutRef<typeof motion.a>)}>
         {Content}
-      </motion.a>
+      </Link>
     );
   }
 
