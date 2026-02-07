@@ -9,8 +9,7 @@ import type { UrlObject } from "url";
 import type { Route } from "next";
 
 type ButtonVariant = "outline" | "default" | "secondary";
-const MotionLink = motion(Link);
-// ✅ correct href type for Next.js
+const MotionLink = motion.create(Link);
 type Href = Route | UrlObject;
 
 type BaseProps = {
