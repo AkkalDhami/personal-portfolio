@@ -230,3 +230,253 @@ Authorization determines what the user can access (roles, permissions).
   text="First, authentication middleware verifies the user (for example, by validating a JWT).
 Then, authorization middleware checks roles or permissions before allowing access to a route."
 />
+
+## 6. Event Loop, libuv, V8 & Non-Blocking I/O
+
+Node.js works on a **single-threaded**, **non-blocking,** event-driven architecture, which is powered by the **Event Loop**, **libuv**, and the **V8 engine**.
+
+### I. V8 Engine
+
+- V8 is Google's JavaScript engine.
+- It compiles JavaScript directly into machine code
+- Executes JS code very fast
+- Manages memory using garbage collection
+
+**_V8 executes JavaScript code._**
+
+### II. Libuv
+
+libuv is a C library that provides:
+
+- The event loop
+- Thread pool
+- Asynchronous I/O operations
+
+It handles:
+
+- File system operations
+- Network requests
+- Timers
+
+**_Libuv handles async tasks and system-level operations._**
+
+### III. Event Loop
+
+The event loop is part of libuv.
+
+- It continuously checks:
+  - Call stack
+  - Callback queues
+
+- Executes callbacks when the stack is empty
+
+Event loop phases include:
+
+- Timers
+- I/O callbacks
+- Poll
+- Check
+- Close callbacks
+
+**_The event loop decides when a callback should run._**
+
+### IV. Non-Blocking I/O
+
+In Node.js:
+
+- I/O operations do not block the main thread
+- Long tasks (DB, file, network) are offloaded to libuv
+- Node.js continues handling other requests
+
+**_This allows Node.js to handle thousands of concurrent requests efficiently._**
+
+<Note text="V8 executes JavaScript, libuv handles async operations, the event loop manages execution order, and non-blocking I/O allows Node.js to process multiple requests without blocking the main thread." />
+
+## 7. Async/Await & Promises
+
+Promises and async/await are used to handle asynchronous operations in JavaScript and Node.js.
+
+### I. Promise
+
+A Promise represents a value that will be resolved or rejected in the future.
+It has three states:
+
+- Pending
+- Fulfilled
+- Rejected
+
+Promises help avoid callback hell and allow chaining using <Code children=".then()" /> and <Code children=".catch()" />.
+
+### II. Async / Await
+
+Async/await is syntactic sugar built on top of Promises that makes asynchronous code look synchronous and easier to read.
+
+- <Code children="async" /> functions always return a Promise
+
+- <Code children="await" /> pauses execution until the Promise resolves or
+  rejects
+
+Errors are handled using <Code children="try-catch" />
+
+```js
+// Promise
+fetchData()
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+// Async / Await
+async function getData() {
+  try {
+    const data = await fetchData();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+```
+
+<Note text="Promises handle async operations using then and catch, while async/await is a cleaner syntax on top of Promises that uses try-catch for error handling." />
+
+## 8. Error Handling & Global Error Middleware
+
+Error handling in Node.js ensures that application failures are handled gracefully without crashing the server.
+In Express, this is commonly done using centralized or global error-handling middleware.
+
+### I. Error Handling in Express
+
+- Errors can occur in routes, controllers, middleware, or async operations.
+
+- Instead of handling errors everywhere, we use a global error middleware.
+
+- This keeps the code clean, consistent, and easier to maintain.
+
+### II. Global Error-Handling Middleware
+
+A global error middleware is a special Express middleware that catches all errors and sends a standardized response. Global error handling keeps controllers clean and behavior predictable.
+
+It has four parameters:
+
+```bash
+(err, req, res, next)
+```
+
+Express automatically recognizes it as an error middleware because of these four parameters.
+
+**Example**
+
+```js
+app.get("/user", async (req, res, next) => {
+  try {
+    throw new Error("User not found");
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Global Error Middleware
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    success: false,
+    message: err.message
+  });
+});
+```
+
+For more info visit [Global Error Handling](https://servercn.vercel.app/docs/components/global-error-handler)
+
+<Note text="Global error middleware in Express is used to catch and handle all application errors in one place using the (err, req, res, next) function." />
+
+## 9. Env Variable & Config Management
+
+Environment variables are used to store configuration values outside the codebase, such as database URLs, API keys, and secrets.
+
+Config management ensures that applications behave differently across development, staging, and production without changing the code.
+
+In Node.js, environment variables are accessed using <Code children="process.env" />.
+
+Why We Use Environment Variables
+
+- To keep secrets out of source code
+- To avoid hardcoding values
+- To support different environments (dev, prod, test)
+- To improve security and scalabilit
+
+#### Common Examples
+
+- <Code children="PORT" />
+- <Code children="DATABASE_URL" />
+- <Code children="JWT_SECRET" />
+- <Code children="NODE_ENV" />
+
+For more info visit [Env Config](https://servercn.vercel.app/docs/components/env-config)
+
+#### Config Management Best Practice
+
+We separate configuration from business logic by using a centralized config file.
+
+<Code children="src/configs/env.ts" />
+
+```js
+const env = {
+  PORT: Number(process.env.PORT) || 3000,
+  NODE_ENV: process.env.NODE_ENV || "development",
+  LOG_LEVEL: process.env.LOG_LEVEL || "info",
+  CORS_ORIGIN: process.env.CORS_ORIGIN || "*",
+  DATABASE_URL: process.env.DATABASE_URL
+};
+
+export default env;
+```
+
+<Note text="Environment variables store configuration and secrets outside the code, allowing different behavior per environment and improving security." />
+
+## 10. Logging & Monitoring
+
+Logging and monitoring are used to observe application behavior, debug issues, and ensure system reliability in production.
+
+### I. Logging
+
+Logging is the process of recording application events such as:
+
+- Errors
+- Warnings
+- API requests
+- Important system actions
+
+In Node.js, logs help us debug issues, trace requests, and audit behavior.
+
+### II. Logging Levels
+
+We use different log levels to control log importance.
+
+- <Code children="info" /> - normal application flow
+- <Code children="warn" /> - unexpected but non-critical issues
+- <Code children="error" /> - failures and crashes
+- <Code children="debug" /> - detailed development log
+
+_Instead of console.log, we use logging libraries like **Winston** or **Pino** for structured and persistent logs._
+
+```js
+logger.info("Server started");
+logger.error("Database connection failed");
+```
+
+### III. Monitoring
+
+Monitoring tracks the health and performance of the application in real time.
+
+It includes:
+
+- CPU and memory usage
+- Response time
+- Error rates
+- Uptime and availability
+
+### IV. Monitoring Tools
+
+- Prometheus
+- Grafana
+- New Relic
+- Datado
+
+<Note text="Logging records application events, while monitoring tracks performance and system health to ensure reliability in production." />
