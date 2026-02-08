@@ -23,7 +23,4 @@ export const LOCATION = "Kathmandu, Nepal";
 // export const CODE_THEME_BG = "#101010";
 export const CODE_THEME_BG = "#0b0e14";
 
-export const STORAGE_THEME_KEY = "akkal-code-theme";
-export const COOKIE_THEME_KEY = "akkal-code-theme";
 export const DEFAULT_CODE_THEME = "ayu-dark";
-export const CODE_THEME_BG_KEY = "akkal-code-theme-bg";

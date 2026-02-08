@@ -95,7 +95,7 @@ Prevent large data dumps by implementing query parameters.
 
 **Express Implementation Example:**
 
-```typescript
+```ts
 app.get("/api/users", (req, res) => {
   const { page = 1, limit = 10, role } = req.query;
 
@@ -120,7 +120,7 @@ Here is how you implement them in **Node.js with Express**:
 
 **Retrieve** a representation of a resource. This should not modify the server state.
 
-```typescript
+```ts
 // GET /api/users - Get all users
 app.get("/api/users", (req, res) => {
   // Assume db is your database instance
@@ -145,7 +145,7 @@ app.get("/api/users/:id", (req, res) => {
 
 **Create** a new resource. The payload is sent in the request body.
 
-```typescript
+```ts
 // POST /api/users - Create a new user
 app.post("/api/users", (req, res) => {
   const { name, email } = req.body;
@@ -165,7 +165,7 @@ app.post("/api/users", (req, res) => {
 
 **Update** or **Replace** a resource entirely. If the resource doesn't exist, it can be created (depending on implementation).
 
-```typescript
+```ts
 // PUT /api/users/:id - Replace user data
 app.put("/api/users/:id", (req, res) => {
   const { id } = req.params;
@@ -182,7 +182,7 @@ app.put("/api/users/:id", (req, res) => {
 
 **Partially Update** a resource. Only the fields sent in the body are updated.
 
-```typescript
+```ts
 // PATCH /api/users/:id - Update specific fields
 app.patch("/api/users/:id", (req, res) => {
   const { id } = req.params;
@@ -198,7 +198,7 @@ app.patch("/api/users/:id", (req, res) => {
 
 **Remove** a resource.
 
-```typescript
+```ts
 // DELETE /api/users/:id - Delete a user
 app.delete("/api/users/:id", (req, res) => {
   const { id } = req.params;
@@ -276,7 +276,7 @@ Use **Helmet** to set various HTTP headers that help secure your app.
 npm install helmet
 ```
 
-```typescript
+```ts
 import helmet from "helmet";
 
 app.use(helmet());
@@ -290,7 +290,7 @@ Prevent brute-force attacks and abuse by limiting the number of requests from th
 npm install express-rate-limit
 ```
 
-```typescript
+```ts
 import rateLimit from "express-rate-limit";
 
 const limiter = rateLimit({
@@ -311,7 +311,7 @@ Cross-Origin Resource Sharing (CORS) controls which domains can access your API.
 npm install cors
 ```
 
-```typescript
+```ts
 import cors from "cors";
 
 const corsOptions = {
@@ -331,7 +331,7 @@ Never trust client input. Validate request bodies, params, and query strings. **
 npm install zod
 ```
 
-```typescript
+```ts
 import { z } from "zod";
 
 const userSchema = z.object({
@@ -357,7 +357,7 @@ app.post("/api/users", (req, res) => {
 
 Ensure only authenticated users can access protected resources.
 
-```typescript
+```ts
 // Simple middleware example using JWT
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
@@ -381,7 +381,7 @@ app.get("/api/protected", authenticateToken, (req, res) => {
 
 Do not leak stack traces or sensitive database errors to the client in production.
 
-```typescript
+```ts
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack); // Log internally
