@@ -15,6 +15,7 @@ import { isActiveLink } from "@/utils/link";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { GITHUB_URL, NAME } from "@/lib/constants";
 import { SiGithub } from "react-icons/si";
+import { SearchCommand } from "../home/search-command";
 
 interface MenuItem {
   label: string;
@@ -108,6 +109,7 @@ export function Navbar() {
 
         {/* Desktop Controls */}
         <div className="flex items-center gap-3">
+          <SearchCommand />
           <PrimaryButton
             variant="default"
             as="a"
