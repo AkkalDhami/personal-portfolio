@@ -122,14 +122,6 @@ export const SETUP_DATA: SetupCategory[] = [
         link: "https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint"
       },
       {
-        title: "Tailwind CSS IntelliSense",
-        link: "https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss"
-      },
-      {
-        title: "Pretty TypeScript Errors",
-        link: "https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors"
-      },
-      {
         title: "Better Comments",
         link: "https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments"
       },
@@ -186,20 +178,16 @@ export const SETUP_DATA: SetupCategory[] = [
         link: "https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
       },
       {
-        title: "Multi Cursor Case Preserve",
-        link: "https://marketplace.visualstudio.com/items?itemName=Cardinal90.multi-cursor-case-preserve"
-      },
-      {
-        title: "Template String Converter",
-        link: "https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter"
-      },
-      {
         title: "Markdownlint",
         link: "https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint"
       },
       {
         title: "Symbols",
         link: "https://marketplace.visualstudio.com/items?itemName=miguelsolorio.symbols"
+      },
+      {
+        title: "VS Code Icons",
+        link: "https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons"
       },
       {
         title: "GitHub Copilot",
@@ -220,6 +208,22 @@ export const SETUP_DATA: SetupCategory[] = [
       {
         title: "VS Code PDF",
         link: "https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf"
+      },
+      {
+        title: "Tailwind CSS IntelliSense",
+        link: "https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss"
+      },
+      {
+        title: "Pretty TypeScript Errors",
+        link: "https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors"
+      },
+      {
+        title: "Multi Cursor Case Preserve",
+        link: "https://marketplace.visualstudio.com/items?itemName=Cardinal90.multi-cursor-case-preserve"
+      },
+      {
+        title: "Template String Converter",
+        link: "https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter"
       }
     ]
   }

@@ -10,7 +10,7 @@ export function PlaybookCard({ data }: { data: IPlaybook }) {
         {data.title}
       </h2>
       {data.description && (
-        <p className="text-muted-foreground line-clamp-2">{data.description}</p>
+        <p className="text-muted-foreground line-clamp-3">{data.description}</p>
       )}
       <CornerMarkers offset={8} hoverOffset={4} key={data.slug} className="" />
       <div className="text-muted-secondary group-hover:text-foreground mt-4 flex items-center text-sm font-medium duration-300 group-hover:underline">

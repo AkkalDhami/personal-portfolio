@@ -26,7 +26,7 @@ export const PLAYBOOK_DATA = [
     slug: "backend-fundamentals",
     title: "Backend Fundamentals",
     description:
-      "An end-to-end GitHub OAuth flow designed for scalable backend systems.",
+      "Backend fundamentals encompass the core concepts and technologies that form the foundation of backend development, including server architecture, databases, APIs, and security.",
     docs: "/docs/backend-fundamentals"
   },
   {

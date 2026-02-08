@@ -12,7 +12,7 @@ export function SetupList() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.25, delay: categoryIndex * 0.05 }}
+            transition={{ duration: 0.05, delay: categoryIndex * 0.05 }}
             viewport={{ once: true }}
             className="flex items-center gap-3">
             <div className="bg-muted text-primary flex size-10 items-center justify-center">
