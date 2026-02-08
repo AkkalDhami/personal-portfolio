@@ -12,7 +12,7 @@ export const mdxComponents: MDXComponents = {
   Note,
   h1: props => <h1 className="text-3xl font-bold tracking-tight" {...props} />,
   h2: props => (
-    <h2 className="my-2.5 text-2xl font-semibold tracking-tight" {...props} />
+    <h2 className="my-3 text-2xl font-semibold tracking-tight" {...props} />
   ),
   h3: props => (
     <h3
