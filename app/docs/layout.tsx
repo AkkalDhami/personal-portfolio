@@ -1,16 +1,11 @@
-// import DocsSidebar from "@/components/layouts/docs-sidebar";
-// import { MobileNav } from "@/components/layouts/mobile-nav";
-
 export default function DocsLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative px-2 py-1">
-      <main className="w-full px-4 pt-12 pb-16 font-sans md:pt-18">
-        {children}
-      </main>
-    </div>
+    <main className="relative w-full max-w-180 pt-18 pb-16 font-sans sm:px-4">
+      {children}
+    </main>
   );
 }
