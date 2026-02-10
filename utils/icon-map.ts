@@ -1,6 +1,8 @@
 import type { IconType } from "react-icons";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
+  SiHtml5,
+  SiCss3,
   SiMongodb,
   SiTailwindcss,
   SiNextdotjs,
@@ -25,6 +27,8 @@ import { VscVscode } from "react-icons/vsc";
 import { Code } from "lucide-react";
 
 export type TechStack =
+  | "HTML"
+  | "CSS"
   | "NEXTJS"
   | "REACT"
   | "NODEJS"
@@ -34,7 +38,7 @@ export type TechStack =
   | "MYSQL"
   | "POSTGRESQL"
   | "REDIS"
-  | "EXPRESS"
+  | "EXPRESSJS"
   | "JAVASCRIPT"
   | "SHADCNUI"
   | "REACTQUERY"
@@ -50,6 +54,8 @@ export type TechStack =
   | "DEFAULT";
 
 export const TECH_ICONS: Record<TechStack, IconType> = {
+  HTML: SiHtml5,
+  CSS: SiCss3,
   REACT: FaReact,
   NODEJS: FaNodeJs,
   MONGODB: SiMongodb,
@@ -59,7 +65,7 @@ export const TECH_ICONS: Record<TechStack, IconType> = {
   MYSQL: SiMysql,
   POSTGRESQL: SiPostgresql,
   REDIS: SiRedis,
-  EXPRESS: SiExpress,
+  EXPRESSJS: SiExpress,
   JAVASCRIPT: SiJavascript,
   SHADCNUI: SiShadcnui,
   REACTQUERY: SiReactquery,

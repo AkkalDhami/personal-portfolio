@@ -95,8 +95,8 @@ export const STACKS: IStack[] = [
   },
   {
     label: "Express.js",
-    value: "express",
-    icon: TECH_ICONS.EXPRESS,
+    value: "expressjs",
+    icon: TECH_ICONS.EXPRESSJS,
     category: "backend"
   },
   {
