@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { IStack } from "@/utils/stack";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { CornerMarkers } from "../ui/corner-markers";
 
 function SkillCard({ skill, index }: { skill: IStack; index: number }) {
   const typeOfSkillIcon = skill.icon instanceof Function ? "icon" : "image";
@@ -14,7 +15,7 @@ function SkillCard({ skill, index }: { skill: IStack; index: number }) {
       transition={{ delay: index * 0.05 }}
       viewport={{ once: true }}
       className={cn(
-        "group/item flex items-center gap-2 border border-dashed border-neutral-400 p-2 transition-colors duration-200 dark:border-neutral-600",
+        "group/item relative flex items-center gap-2 border border-neutral-300 p-2 transition-colors duration-200 dark:border-neutral-800",
         index % 2 === 0 ? "bg-linear-l" : "bg-linear-b"
       )}>
       <div className="p-1.5">
@@ -33,6 +34,11 @@ function SkillCard({ skill, index }: { skill: IStack; index: number }) {
       <span className="text-accent-foreground truncate text-base font-medium">
         {skill.label}
       </span>
+      <CornerMarkers
+        offset={7}
+        hoverOffset={0}
+        className="group-hover:text-muted-foreground"
+      />
     </motion.div>
   );
 }

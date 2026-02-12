@@ -10,7 +10,6 @@ import {
 } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import Image from "next/image";
 import { LuArrowUpRight } from "react-icons/lu";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { Route } from "next";
@@ -22,10 +21,14 @@ import {
   TooltipTrigger
 } from "@/components/ui/tooltip";
 
+import { RiLinkedinFill, RiGithubFill, RiTwitterXFill } from "react-icons/ri";
+import { IconType } from "react-icons";
+import { MailIcon } from "lucide-react";
+
 export type SocialLink = {
   name: string;
   href: string;
-  icon: string;
+  icon: IconType;
   username: string;
 };
 
@@ -33,25 +36,25 @@ export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     href: GITHUB_URL,
-    icon: "/assets/icons/github.webp",
+    icon: RiGithubFill,
     username: GITHUB_USERNAME
   },
   {
     name: "LinkedIn",
     href: LINKEDIN_URL,
-    icon: "/assets/icons/linkedin.webp",
+    icon: RiLinkedinFill,
     username: `@${LINKEDIN_USERNAME}`
   },
   {
     name: "Twitter",
     href: X_URL,
-    icon: "/assets/icons/x.webp",
+    icon: RiTwitterXFill,
     username: `@${X_USERNAME}`
   },
   {
     name: "Email",
     href: `mailto:${EMAIL}`,
-    icon: "/assets/icons/email.svg",
+    icon: MailIcon,
     username: SECONDARY_EMAIL
   }
 ];
@@ -77,17 +80,7 @@ export function SocialLinks({
                     href={link.href as Route}
                     target="_blank"
                     className="group relative px-1.5 py-1">
-                    <Image
-                      src={link.icon}
-                      alt={link.name}
-                      width={24}
-                      height={24}
-                      className={cn(
-                        "size-7",
-                        link.name.toLocaleLowerCase() === "email" &&
-                          "dark:invert"
-                      )}
-                    />
+                    <link.icon className="text-muted-primary group-hover:text-primary size-6" />
                     <CornerMarkers offset={7} hoverOffset={3} />
                   </PrimaryButton>
                 }></TooltipTrigger>
@@ -114,17 +107,11 @@ export function SocialLinks({
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:bg-card-hover group primary-border relative flex w-full space-x-3 rounded-none border-[1.5px] px-3 py-3 text-center">
-            <Image
-              src={social.icon}
-              alt={social.name}
-              width={24}
-              height={24}
-              className={cn(
-                "text-muted-primary group-hover:text-accent-foreground size-11",
-                social.name.toLocaleLowerCase() === "email" && "dark:invert"
-              )}
-            />
+            className="hover:bg-card-hover group primary-border relative flex w-full gap-3 rounded-none border-[1.5px] px-3 py-3 text-center">
+            <CornerMarkers offset={7} hoverOffset={6} />
+            <div className="bg-muted p-2">
+              <social.icon className="text-muted-foreground group-hover:text-primary size-8" />
+            </div>
             <div className="flex w-full flex-col items-start">
               <div className="flex w-full items-center justify-between">
                 <h3 className="text-muted-primary group-hover:text-accent-foreground font-medium underline-offset-3 group-hover:underline">
