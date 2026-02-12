@@ -3,10 +3,10 @@
 import { ArrowDownIcon, ArrowUpIcon, CornerDownLeftIcon } from "lucide-react";
 import {
   RiBookOpenLine,
-  RiGithubFill,
   RiHome4Line,
   RiPhoneLine,
   RiLinkedinFill,
+  RiGithubFill,
   RiTwitterXFill
 } from "react-icons/ri";
 import { HiOutlineCube } from "react-icons/hi";

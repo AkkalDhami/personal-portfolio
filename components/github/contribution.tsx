@@ -27,9 +27,10 @@ import {
 } from "@/components/ui/tooltip";
 import { format } from "date-fns";
 import { LoaderIcon } from "lucide-react";
+import { CornerMarkers } from "../ui/corner-markers";
 
 const YEARS = [
-  { label: "Last Year", value: "last" },
+  { label: "last", value: "last" },
   { label: "2026", value: "2026" },
   { label: "2025", value: "2025" },
   { label: "2024", value: "2024" }
@@ -43,12 +44,10 @@ export function GitHubContributionGraph({
   initialData
 }: GithubContributionsProps) {
   const [year, setYear] = useState<string>("last");
-  // Default to initialData and no loading state
   const [data, setData] = useState<Activity[]>(initialData);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Skip fetching if year is "last" because we already have initialData for it
     if (year === "last") {
       setData(initialData);
       return;
@@ -76,15 +75,15 @@ export function GitHubContributionGraph({
       viewport={{ once: true }}
       className="w-full space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-muted-foreground text-sm font-medium tracking-wide uppercase">
-          Github <br /> Contributions
+        <h3 className="text-muted-foreground text-base font-medium tracking-wide uppercase">
+          Github Contributions
         </h3>
         <Select
           value={year}
           onValueChange={val => {
             if (val) setYear(val);
           }}>
-          <SelectTrigger className="h-6 w-[120px] text-xs">
+          <SelectTrigger className="h-6 w-30 text-xs">
             <SelectValue placeholder="Select Year" />
           </SelectTrigger>
           <SelectContent className={"w-auto"}>
@@ -97,7 +96,7 @@ export function GitHubContributionGraph({
         </Select>
       </div>
 
-      <div className="bg-secondary/10 relative min-h-[200px] border border-neutral-200 p-4 dark:border-neutral-800">
+      <div className="group relative min-h-50 border border-neutral-200 p-4 dark:border-neutral-800">
         {loading ? (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="border-primary h-6 w-6 animate-spin rounded-full border-2 border-t-transparent" />
@@ -135,6 +134,7 @@ export function GitHubContributionGraph({
             </ContributionGraphFooter>
           </ContributionGraph>
         )}
+        <CornerMarkers offset={7} hoverOffset={6} />
       </div>
     </motion.div>
   );
