@@ -6,6 +6,9 @@ import { SubHeading } from "@/components/ui/sub-heading";
 import { PLAYBOOK_DATA } from "@/data/playbook";
 import { PlaybookCard } from "./playbook-card";
 import { IPlaybook } from "@/types/app.types";
+import { cn } from "@/lib/utils";
+import { PrimaryButton } from "../ui/primary-button";
+import { CornerMarkers } from "../ui/corner-markers";
 
 export const fadeInUp = {
   initial: { y: 40, opacity: 0 },
@@ -20,9 +23,9 @@ const stagger = {
   }
 };
 
-export function PlaybookSection() {
+export function PlaybookSection({ home = false }: { home?: boolean }) {
   return (
-    <section id="projects" className="min-h-screen py-12">
+    <section id="projects" className={cn(!home && "min-h-screen", "pt-12")}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,10 +45,26 @@ export function PlaybookSection() {
         whileInView="animate"
         viewport={{ once: true }}
         className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-        {PLAYBOOK_DATA.map((playbook: IPlaybook) => (
-          <PlaybookCard data={playbook} key={playbook.slug} />
-        ))}
+        {(home ? PLAYBOOK_DATA.slice(0, 6) : PLAYBOOK_DATA).map(
+          (playbook: IPlaybook) => (
+            <PlaybookCard data={playbook} key={playbook.slug} />
+          )
+        )}
       </motion.div>
+
+      {home && (
+        <motion.div
+          variants={stagger}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="mt-6 flex items-center justify-center">
+          <PrimaryButton as="a" href={"/playbook"} className="py-3">
+            View More
+            <CornerMarkers />
+          </PrimaryButton>
+        </motion.div>
+      )}
     </section>
   );
 }
