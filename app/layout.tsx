@@ -104,7 +104,7 @@ export default function RootLayout({
           disableTransitionOnChange>
           <ToastProvider position="top-center">
             <AnchoredToastProvider>
-              <main className="bg-background relative mx-auto min-h-screen max-w-3xl">
+              <main className="bg-background relative mx-auto min-h-screen max-w-4xl">
                 <Navbar />
                 {children}
                 <Footer />

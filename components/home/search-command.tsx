@@ -44,6 +44,7 @@ import { cn } from "@/lib/utils";
 import { GITHUB_URL, LINKEDIN_URL, X_URL } from "@/lib/constants";
 import { LuMoonStar } from "react-icons/lu";
 import { useTheme } from "next-themes";
+import { TEMPLATE_DATA } from "../templates/template-section";
 
 export interface Item {
   value: string;
@@ -123,6 +124,16 @@ export const playbooks: Item[] = PLAYBOOK_DATA.map(play => {
   };
 });
 
+export const templates: Item[] = TEMPLATE_DATA.map(t => {
+  return {
+    value: `${t.liveUrl}`,
+    label: t.title,
+    icon: LuLayoutTemplate,
+    link: true,
+    newTab: true
+  };
+});
+
 export const contacts: Item[] = CONTACT_INFO.filter(
   f => f.label.toLowerCase() != "github"
 ).map(c => {
@@ -178,6 +189,7 @@ export const groupedItems: Group[] = [
   { items: navigations, value: "NAVIGATION" },
   { items: projects, value: "PROJECTS" },
   { items: playbooks, value: "BACKEND PLAYBOOK" },
+  { items: templates, value: "TEMPLATES" },
   { items: contacts, value: "CONTACT INFO" },
   { items: socials, value: "SOCIAL LINKS" },
   { items: others, value: "OTHERS" }
