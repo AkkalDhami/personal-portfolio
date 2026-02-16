@@ -19,7 +19,7 @@ export type ITemplate = Pick<
   | "technologies"
 >;
 
-export const templates: ITemplate[] = [
+export const TEMPLATE_DATA: ITemplate[] = [
   {
     title: "Minimal Developer Portfolio",
     description:
@@ -41,6 +41,20 @@ export const templates: ITemplate[] = [
     thumbnail: "/assets/templates/temp-2.png",
     githubUrl: `${GITHUB_URL}/minimal-portfolio-template`,
     liveUrl: "https://akkal-min-portfolio.vercel.app",
+    technologies: [
+      { name: "Nextjs" },
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "Tailwind" }
+    ]
+  },
+  {
+    title: "Retro-Inspired Portfolio",
+    description:
+      "A unique and retro-inspired portfolio website designed for developers who want to showcase their work with a nostalgic touch.",
+    thumbnail: "/assets/templates/temp-6.png",
+    githubUrl: `${GITHUB_URL}/8bit-portfolio-template`,
+    liveUrl: "https://8bit-portfolio-template.vercel.app",
     technologies: [
       { name: "Nextjs" },
       { name: "React" },
@@ -116,7 +130,7 @@ export function TemplateSection() {
         whileInView="animate"
         viewport={{ once: true }}
         className="grid grid-cols-1 gap-8">
-        {templates.map(t => (
+        {TEMPLATE_DATA.map(t => (
           <motion.div key={t.githubUrl} variants={fadeInUp} className="group">
             <TemplateCard template={t} />
           </motion.div>
