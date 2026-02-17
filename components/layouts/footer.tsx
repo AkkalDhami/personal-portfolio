@@ -54,7 +54,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-stroke text-center text-3xl font-bold tracking-widest uppercase sm:text-6xl xl:text-7xl">
+            <p className="text-center text-4xl font-bold tracking-widest text-neutral-300 uppercase sm:text-6xl xl:text-7xl dark:text-neutral-800">
               {NAME}
             </p>
           </div>
