@@ -27,7 +27,7 @@ export function TemplateCard({ template }: { template: ITemplate }) {
           alt={template.title}
           width={200}
           height={200}
-          className="object-contain transition-transform duration-500"
+          className="object-cover transition-transform duration-500"
         />
 
         <div className="flex flex-1 flex-col justify-between py-1">

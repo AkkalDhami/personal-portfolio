@@ -244,15 +244,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.text-stroke {
-  -webkit-text-stroke: 2px var(--muted-tertiary);
-  color: transparent;
-  font-family: Helvetica, sans-serif;
-}
-
-.text-stroke-primary {
-  -webkit-text-stroke: 2px var(--primary);
-}
 
 [data-rehype-pretty-code-figure] {
   max-width: 720px;

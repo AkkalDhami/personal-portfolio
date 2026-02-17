@@ -28,13 +28,15 @@ const fadeUp = {
 
 export function HeroSection() {
   return (
-    <section id="about" className="relative z-10 mb-12 pt-20 font-normal">
+    <section
+      id="about"
+      className="relative z-10 mb-12 pt-20 font-sans font-normal">
       <div className="mt-4 sm:mt-8">
         <div className="mb-5 flex items-baseline-last gap-2">
           <motion.h1
             {...fadeUp}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-inter text-stroke text-stroke-primary text-3xl font-bold tracking-widest uppercase sm:text-3xl lg:text-4xl xl:text-6xl">
+            className="font-inter text-3xl font-medium tracking-wide uppercase sm:text-4xl lg:text-6xl xl:text-7xl">
             {NAME}
           </motion.h1>
           <NamePronoun />
