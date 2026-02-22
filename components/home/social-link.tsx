@@ -81,7 +81,7 @@ export function SocialLinks({
                     target="_blank"
                     className="group relative px-1.5 py-1">
                     <link.icon className="text-muted-primary group-hover:text-primary size-6" />
-                    <CornerMarkers offset={7} hoverOffset={3} />
+                    <CornerMarkers offset={7} hoverOffset={4} />
                   </PrimaryButton>
                 }></TooltipTrigger>
               <TooltipContent>

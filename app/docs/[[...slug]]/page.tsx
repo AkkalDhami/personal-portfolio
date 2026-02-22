@@ -73,16 +73,6 @@ export async function generateMetadata(props: {
   };
 }
 
-const getPrettyCodeOptions = (theme: string) => ({
-  theme: {
-    dark: theme || "github-dark-high-contrast",
-    light: "github-light-default"
-  },
-  keepBackground: true,
-  defaultLang: "plaintext",
-  grid: true
-});
-
 function getDocPath(slug?: string[]) {
   if (!slug || slug.length === 0) {
     notFound();
@@ -123,7 +113,20 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
             components={mdxComponents}
             options={{
               mdxOptions: {
-                rehypePlugins: [[rehypePrettyCode, getPrettyCodeOptions(theme)]]
+                rehypePlugins: [
+                  [
+                    rehypePrettyCode,
+                    {
+                      theme: {
+                        dark: theme || "github-dark-high-contrast",
+                        light: "github-light-default"
+                      },
+                      keepBackground: true,
+                      defaultLang: "plaintext",
+                      grid: true
+                    }
+                  ]
+                ]
               }
             }}
           />

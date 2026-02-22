@@ -110,7 +110,7 @@ export const projects: Item[] = PROJECTS.map(proj => {
     label: proj.title,
     icon: HiOutlineCube,
     link: true,
-    newTab: true
+    newTab: false
   };
 });
 
@@ -237,7 +237,7 @@ export function SearchCommand() {
           <PrimaryButton
             variant="outline"
             className="relative px-2 py-2 transition-colors">
-            <CornerMarkers offset={7} hoverOffset={3} key={"primary-button"} />
+            <CornerMarkers offset={7} hoverOffset={4} key={"primary-button"} />
             <KbdGroup>
               <Kbd>⌘</Kbd>
               <Kbd>K</Kbd>
