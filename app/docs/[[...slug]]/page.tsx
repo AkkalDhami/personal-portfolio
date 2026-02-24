@@ -108,6 +108,9 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
     <div className="flex w-full max-w-3xl gap-8 px-3 sm:p-0">
       <div id="docs-content" className="flex-1">
         <article className="prose prose-neutral dark:prose-invert mb-6 max-w-none [&_ol]:list-decimal [&_ol]:pl-6 [&_ul]:list-disc [&_ul]:pl-6">
+          <div className="my-4">
+            <NextSteps next={next} prev={prev} min />
+          </div>
           <MDXRemote
             source={content}
             components={mdxComponents}
@@ -144,10 +147,12 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
 
 const NextSteps = ({
   next,
-  prev
+  prev,
+  min
 }: {
   next?: IPlaybook | undefined;
   prev?: IPlaybook | undefined;
+  min?: boolean;
 }) => {
   return (
     <div className="mt-8 flex items-center justify-between">
@@ -156,11 +161,10 @@ const NextSteps = ({
           variant="secondary"
           className="group px-4 py-2 font-medium tracking-normal capitalize"
           as="a"
-          title={prev?.title}
           href={prev.docs as Route}>
           <div className="flex items-center gap-1">
             <ArrowLeftIcon className="size-4" />
-            <span className="hidden sm:inline"> {prev.title}</span>{" "}
+            {!min && <span className="hidden sm:inline"> {prev.title}</span>}
           </div>
           <CornerMarkers offset={7} hoverOffset={6} className="text-primary" />
         </PrimaryButton>
@@ -174,7 +178,7 @@ const NextSteps = ({
             title={next.title}
             href={next.docs as Route}>
             <div className="flex items-center gap-1">
-              <span className="hidden sm:inline"> {next.title}</span>{" "}
+              {!min && <span className="hidden sm:inline"> {next.title}</span>}
               <ArrowRightIcon className="size-4" />
             </div>
             <CornerMarkers
