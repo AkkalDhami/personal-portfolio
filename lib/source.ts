@@ -13,7 +13,9 @@ export const findNeighbour = (
     };
   }
 
-  const index = PLAYBOOK_DATA.findIndex(item => item.slug === slug);
+  const index = PLAYBOOK_DATA.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  ).findIndex(item => item.slug === slug);
 
   return {
     prev: index > 0 ? PLAYBOOK_DATA[index - 1] : undefined,

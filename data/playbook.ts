@@ -20,7 +20,14 @@ export const PLAYBOOK_DATA = [
     title: "Backend Fundamentals: 01",
     description:
       "Backend fundamentals encompass the core concepts and technologies that form the foundation of backend development, including server architecture, databases, APIs, and security.",
-    docs: "/docs/backend-fundamentals"
+    docs: "/docs/backend-fundamentals-01"
+  },
+  {
+    slug: "backend-fundamentals-02",
+    title: "Backend Fundamentals: 02",
+    description:
+      "Backend fundamentals encompass the core concepts and technologies that form the foundation of backend development, including server architecture, databases, APIs, and security.",
+    docs: "/docs/backend-fundamentals-02"
   },
   {
     slug: "github-oauth",

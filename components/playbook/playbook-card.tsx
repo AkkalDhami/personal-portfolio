@@ -11,7 +11,7 @@ export function PlaybookCard({ data, i }: { data: IPlaybook; i: number }) {
       transition={{ delay: i * 0.1 }}
       viewport={{ once: true }}
       className="group hover:bg-card-hover relative border p-3 duration-300">
-      <h2 className="text-muted-primary group-hover:text-foreground mb-2 text-lg font-medium underline-offset-3 group-hover:underline">
+      <h2 className="text-muted-primary group-hover:text-foreground mb-2 text-lg font-medium underline-offset-4 group-hover:underline">
         {data.title}
       </h2>
       {data.description && (
