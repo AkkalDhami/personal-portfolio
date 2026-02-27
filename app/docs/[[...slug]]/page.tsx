@@ -16,6 +16,7 @@ import { IPlaybook } from "@/types/app.types";
 import { CornerMarkers } from "@/components/ui/corner-markers";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import siteConfig from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export const revalidate = false;
 export const dynamic = "force-dynamic";
@@ -100,16 +101,20 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
     : { next: undefined, prev: undefined };
 
   const source = fs.readFileSync(filePath, "utf8");
-  const { content } = matter(source);
+  const { content, data } = matter(source);
 
   const theme = DEFAULT_CODE_THEME;
 
   return (
-    <div className="flex w-full max-w-3xl gap-8 px-3 sm:p-0">
-      <div id="docs-content" className="flex-1">
+    <div className="flex w-full max-w-4xl gap-8 px-3 sm:p-0">
+      <div id="docs-content">
         <article className="prose prose-neutral dark:prose-invert mb-6 max-w-none [&_ol]:list-decimal [&_ol]:pl-6 [&_ul]:list-disc [&_ul]:pl-6">
           <div className="my-4">
-            <NextSteps next={next} prev={prev} min />
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-2xl font-medium">{data.title}</h2>
+              <NextSteps next={next} prev={prev} min />
+            </div>
+            <OnThisPage />
           </div>
           <MDXRemote
             source={content}
@@ -124,7 +129,7 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
                         dark: theme || "github-dark-high-contrast",
                         light: "github-light-default"
                       },
-                      keepBackground: true,
+                      keepBackground: false,
                       defaultLang: "plaintext",
                       grid: true
                     }
@@ -135,12 +140,9 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
           />
         </article>
         <div className="mt-14">
-          <NextSteps next={next} prev={prev} />
+          <NextSteps next={next} prev={prev} className="mt-8" />
         </div>
       </div>
-      <aside className="thin-scrollbar docs-content bg-background sticky top-16 z-1 hidden max-h-[calc(100vh-2rem)] min-w-64 shrink-0 overflow-y-auto px-4 xl:block">
-        <OnThisPage />
-      </aside>
     </div>
   );
 }
@@ -148,32 +150,40 @@ export default async function DocsPage(props: PageProps<"/docs/[[...slug]]">) {
 const NextSteps = ({
   next,
   prev,
-  min
+  min,
+  className
 }: {
   next?: IPlaybook | undefined;
   prev?: IPlaybook | undefined;
   min?: boolean;
+  className?: string;
 }) => {
   return (
-    <div className="mt-8 flex items-center justify-between">
+    <div className={cn("flex items-center justify-between gap-4", className)}>
       {prev && (
         <PrimaryButton
           variant="secondary"
-          className="group px-4 py-2 font-medium tracking-normal capitalize"
+          className={cn(
+            "group font-medium tracking-normal capitalize",
+            min ? "px-2 py-2" : "px-4 py-2"
+          )}
           as="a"
           href={prev.docs as Route}>
           <div className="flex items-center gap-1">
             <ArrowLeftIcon className="size-4" />
             {!min && <span className="hidden sm:inline"> {prev.title}</span>}
           </div>
-          <CornerMarkers offset={7} hoverOffset={6} className="text-primary" />
+          <CornerMarkers offset={7} hoverOffset={4} />
         </PrimaryButton>
       )}
       {next && (
         <div className="flex items-center justify-end">
           <PrimaryButton
             variant="secondary"
-            className="group px-4 py-2 font-medium tracking-normal capitalize"
+            className={cn(
+              "group font-medium tracking-normal capitalize",
+              min ? "px-2 py-2" : "px-4 py-2"
+            )}
             as="a"
             title={next.title}
             href={next.docs as Route}>
@@ -181,11 +191,7 @@ const NextSteps = ({
               {!min && <span className="hidden sm:inline"> {next.title}</span>}
               <ArrowRightIcon className="size-4" />
             </div>
-            <CornerMarkers
-              offset={7}
-              hoverOffset={6}
-              className="text-primary"
-            />
+            <CornerMarkers offset={7} hoverOffset={4} />
           </PrimaryButton>
         </div>
       )}

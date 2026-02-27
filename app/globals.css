@@ -283,7 +283,6 @@ html {
   }
 
   [data-rehype-pretty-code-figure] {
-    max-width: 720px;
     width: 100%;
     position: relative;
     overflow: auto;

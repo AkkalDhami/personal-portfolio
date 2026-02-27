@@ -4,6 +4,7 @@ import { GitHubContributions } from "@/components/github";
 import { ProjectsSection } from "@/components/projects/project-section";
 import { SkillsSection } from "@/components/skills/skill-section";
 import { PlaybookSection } from "@/components/playbook/playbook-section";
+import { TemplateSection } from "@/components/templates/template-section";
 
 export default async function Page() {
   return (
@@ -13,6 +14,7 @@ export default async function Page() {
       <GitHubContributions />
       <PlaybookSection home />
       <SkillsSection />
+      <TemplateSection home />
       <ContactSection />
     </div>
   );
