@@ -17,7 +17,7 @@ import { SplitText } from "../ui/split-text";
 const HERO_WORDS = [
   "systems that scale under pressure.",
   "APIs designed for real traffic.",
-  "backend architecture built to last.",
+  "scalable backend systems that power real products.",
   "codebases that stay maintainable.",
   "performance-first engineering."
 ];
@@ -122,7 +122,7 @@ export function HeroSection() {
             </PrimaryButton>
           </motion.div>
           <div className="mt-3">
-            <SocialLinks minimal={false} className="gap-6" />
+            <SocialLinks minimal={false} className="sm:gap-6" />
           </div>
         </motion.div>
       </div>

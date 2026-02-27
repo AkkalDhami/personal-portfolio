@@ -1,12 +1,8 @@
 import {
   DAILY_DEV_URL,
-  DAILY_DEV_USERNAME,
   GITHUB_URL,
-  GITHUB_USERNAME,
   LINKEDIN_URL,
-  LINKEDIN_USERNAME,
-  X_URL,
-  X_USERNAME
+  X_URL
 } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
@@ -29,33 +25,28 @@ export type SocialLink = {
   name: string;
   href: string;
   icon: IconType;
-  username: string;
 };
 
 export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     href: GITHUB_URL,
-    icon: RiGithubFill,
-    username: `@${GITHUB_USERNAME}`
+    icon: RiGithubFill
   },
   {
     name: "LinkedIn",
     href: LINKEDIN_URL,
-    icon: RiLinkedinFill,
-    username: `@${LINKEDIN_USERNAME}`
+    icon: RiLinkedinFill
   },
   {
-    name: "Twitter",
+    name: "X (Twitter)",
     href: X_URL,
-    icon: RiTwitterXFill,
-    username: `@${X_USERNAME}`
+    icon: RiTwitterXFill
   },
   {
     name: "daily.dev",
     href: DAILY_DEV_URL,
-    icon: SiDailydotdev,
-    username: `@${DAILY_DEV_USERNAME}`
+    icon: SiDailydotdev
   }
 ];
 
@@ -100,26 +91,25 @@ export function SocialLinks({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
       viewport={{ once: true }}>
-      <div className={cn("grid grid-cols-1 gap-4 md:grid-cols-2", className)}>
+      <div className={cn("grid grid-cols-2 gap-4 md:grid-cols-4", className)}>
         {socialLinks.map(social => (
           <motion.a
             key={social.name}
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:bg-card-hover group primary-border relative flex w-full gap-3 rounded-none border-[1.5px] px-3 py-3 text-center">
+            className="hover:bg-card-hover group primary-border relative flex w-full items-center gap-3 rounded-none border-[1.5px] px-3 py-3 text-center">
             <CornerMarkers offset={7} hoverOffset={6} />
-            <div className="p-2">
-              <social.icon className="text-muted-foreground group-hover:text-primary size-8" />
+            <div className="sm:p-1">
+              <social.icon className="text-muted-foreground group-hover:text-primary size-5 sm:size-6" />
             </div>
             <div className="flex w-full flex-col items-start">
               <div className="flex w-full items-center justify-between">
-                <h3 className="text-muted-primary group-hover:text-accent-foreground font-medium underline-offset-3 group-hover:underline">
+                <h3 className="text-muted-primary group-hover:text-accent-foreground text-sm font-medium underline-offset-3 group-hover:underline sm:text-base">
                   {social.name}
                 </h3>
                 <LuArrowUpRight className="text-muted-primary group-hover:text-accent-foreground size-4" />
               </div>
-              <p className="text-muted-foreground text-sm">{social.username}</p>
             </div>
           </motion.a>
         ))}
