@@ -4,6 +4,8 @@ export const X_USERNAME = "aavashdhami2127";
 
 export const LINKEDIN_USERNAME = "akkal-dhami";
 
+export const PORTFOLIO_URL = "https://akkal.vercel.app";
+
 export const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}`;
 
 export const LINKEDIN_URL = `https://www.linkedin.com/in/${LINKEDIN_USERNAME}-854273378`;

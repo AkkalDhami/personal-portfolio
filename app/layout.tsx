@@ -8,7 +8,7 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { Footer } from "@/components/layouts/footer";
 import { BgPattern } from "@/components/layouts/bg-pattern";
 import siteConfig from "@/lib/site";
-import { X_USERNAME } from "@/lib/constants";
+import { PORTFOLIO_URL, X_USERNAME } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/og.png",
+        url: `${PORTFOLIO_URL}/images/og.png`,
         width: 1200,
         height: 630,
         alt: siteConfig.name
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/images/og.png"],
+    images: [`${PORTFOLIO_URL}/images/og.png`],
     creator: `@${X_USERNAME}`
   },
   icons: {
