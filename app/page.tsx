@@ -5,6 +5,7 @@ import { ProjectsSection } from "@/components/projects/project-section";
 import { SkillsSection } from "@/components/skills/skill-section";
 import { PlaybookSection } from "@/components/playbook/playbook-section";
 import { TemplateSection } from "@/components/templates/template-section";
+import { StackMarquee } from "@/components/shared/stack-marquee";
 
 export default async function Page() {
   return (
@@ -15,6 +16,7 @@ export default async function Page() {
       <PlaybookSection home />
       <SkillsSection />
       <TemplateSection home />
+      <StackMarquee />
       <ContactSection />
     </div>
   );

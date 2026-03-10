@@ -9,6 +9,7 @@ import { Footer } from "@/components/layouts/footer";
 import { BgPattern } from "@/components/layouts/bg-pattern";
 import siteConfig from "@/lib/site";
 import { PORTFOLIO_URL, X_USERNAME } from "@/lib/constants";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -106,7 +107,7 @@ export default function RootLayout({
             <AnchoredToastProvider>
               <main className="bg-background relative mx-auto min-h-screen max-w-4xl">
                 <Navbar />
-                {children}
+                <TooltipProvider>{children}</TooltipProvider>
                 <Footer />
                 <BackToTop />
               </main>
