@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import CopyButton from "./copy-button";
+import { CopyButton } from "./copy-button";
 import { cn } from "@/lib/utils";
 import { CODE_THEME_BG } from "@/lib/constants";
 
@@ -13,19 +13,18 @@ export function Pre({
   ...props
 }: React.HTMLAttributes<HTMLPreElement>) {
   const ref = React.useRef<HTMLPreElement>(null);
-  const [copied, setCopied] = React.useState(false);
+  const [code, setCode] = React.useState("");
 
-  async function copy() {
+  React.useEffect(() => {
     if (!ref.current) return;
 
-    const code = ref.current.querySelector("code")?.innerText;
-    if (!code) return;
+    const codeText =
+      ref.current.querySelector("code")?.textContent ??
+      ref.current.innerText ??
+      "";
 
-    await navigator.clipboard.writeText(code);
-    setCopied(true);
-
-    setTimeout(() => setCopied(false), 2000);
-  }
+    setCode(codeText);
+  }, [children]);
 
   return (
     <div className="relative max-w-[272.5px] overflow-x-auto sm:max-w-[850px]">
@@ -37,9 +36,9 @@ export function Pre({
           backgroundColor: bg
         }}>
         <CopyButton
-          handleCopy={copy}
-          copied={copied}
-          className="absolute right-4 bottom-3 z-20 flex items-center justify-center py-2 transition-all hover:text-white"
+          text={code}
+          docs={true}
+          className="group absolute right-5 bottom-3 z-10 cursor-pointer bg-transparent text-xs hover:bg-neutral-800 hover:text-white"
         />
         {children}
       </pre>
