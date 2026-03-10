@@ -5,8 +5,16 @@ import { motion } from "motion/react";
 import type { Route } from "next";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
-import { CornerMarkers } from "@/components/ui/corner-markers";
-import { EMAIL, GITHUB_URL, LOCATION, NAME, PHONE } from "@/lib/constants";
+import {
+  EMAIL,
+  GITHUB_URL,
+  GITHUB_USERNAME,
+  LOCATION,
+  NAME,
+  PHONE
+} from "@/lib/constants";
+import { CopyButton } from "../docs/copy-button";
+import { cn } from "@/lib/utils";
 
 export const CONTACT_INFO = [
   {
@@ -16,7 +24,7 @@ export const CONTACT_INFO = [
   },
   {
     label: "Github",
-    value: "AkkalDhami",
+    value: `github.com/${GITHUB_USERNAME}`,
     icon: FaGithub,
     href: GITHUB_URL
   },
@@ -53,8 +61,7 @@ export function ContactInfo() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="relative">
-            <CornerMarkers offset={7} hoverOffset={0} />
+            className="group relative">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <item.icon className="bg-muted/20 border-border text-muted-primary size-11 border p-2" />
@@ -64,14 +71,24 @@ export function ContactInfo() {
                   {item.label}
                 </span>
                 {item.href ? (
-                  <Link
-                    href={item.href as Route}
-                    target="_blank"
-                    className="decoration-primary text-sm font-semibold underline-offset-4 hover:underline">
-                    {item.value}
-                  </Link>
+                  <div className="flex w-full items-center justify-between">
+                    <Link
+                      href={item.href as Route}
+                      target="_blank"
+                      className="decoration-primary text-sm font-medium underline-offset-4 hover:underline">
+                      {item.value}
+                    </Link>
+                    <CopyButton
+                      text={item.value}
+                      docs={false}
+                      className={cn(
+                        "hover:bg-muted text-muted-foreground opacity-0",
+                        "duration-200 ease-in-out group-hover:opacity-100"
+                      )}
+                    />
+                  </div>
                 ) : (
-                  <span className="text-sm font-semibold">{item.value}</span>
+                  <span className="text-sm font-medium">{item.value}</span>
                 )}
               </div>
             </div>

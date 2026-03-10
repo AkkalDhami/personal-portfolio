@@ -98,7 +98,7 @@ export function HeroSection() {
             <PrimaryButton
               as="a"
               href="/projects"
-              className="rounded-primary w-full py-3 sm:w-auto">
+              className="rounded-primary w-full py-3.5 sm:w-auto">
               View My Work
               <CornerMarkers
                 offset={7}
@@ -112,7 +112,7 @@ export function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               href={"/resume.pdf" as Route}
-              className="rounded-primary w-full py-3 sm:w-auto">
+              className="rounded-primary w-full py-3.5 sm:w-auto">
               View My Resume
               <CornerMarkers
                 offset={7}
