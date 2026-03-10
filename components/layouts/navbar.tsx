@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./theme-toggle";
 import { Profile } from "./profile";
 import { CornerMarkers } from "@/components/ui/corner-markers";
 import Link from "next/link";
@@ -15,7 +14,8 @@ import { isActiveLink } from "@/utils/link";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { GITHUB_URL, NAME } from "@/lib/constants";
 import { SiGithub } from "react-icons/si";
-import { SearchCommand } from "../home/search-command";
+import { SearchCommand } from "@/components/home/search-command";
+import { AnimatedThemeToggle } from "./animated-theme-toggle";
 
 interface MenuItem {
   label: string;
@@ -121,7 +121,8 @@ export function Navbar() {
 
             <CornerMarkers offset={7} hoverOffset={4} key={"primary-button"} />
           </PrimaryButton>
-          <ThemeToggle />
+          <AnimatedThemeToggle duration={500} />
+          {/* <ThemeToggle /> */}
           <PrimaryButton
             variant="secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

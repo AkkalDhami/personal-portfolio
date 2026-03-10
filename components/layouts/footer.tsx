@@ -44,7 +44,7 @@ export function Footer() {
                   "Templates",
                   "Dev-Setup",
                   "Playbook",
-                  "Contact"
+                  "Contacts"
                 ].map(item => (
                   <li key={item}>
                     <Link
