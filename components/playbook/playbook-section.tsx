@@ -9,6 +9,7 @@ import { IPlaybook } from "@/types/app.types";
 import { cn } from "@/lib/utils";
 import { PrimaryButton } from "../ui/primary-button";
 import { CornerMarkers } from "../ui/corner-markers";
+import { Section } from "../ui/section";
 
 export const fadeInUp = {
   initial: { y: 40, opacity: 0 },
@@ -25,13 +26,13 @@ const stagger = {
 
 export function PlaybookSection({ home = false }: { home?: boolean }) {
   return (
-    <section id="projects" className={cn(!home && "min-h-screen", "pt-12")}>
+    <Section id="projects" className={cn(home && "screen-line-before")}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mb-12">
+        className="mb-8">
         <Heading>Backend Playbook</Heading>
         <SubHeading className="text-muted-foreground mx-0 max-w-2xl text-lg">
           Notes from building production backend systems with Node.js and
@@ -44,7 +45,7 @@ export function PlaybookSection({ home = false }: { home?: boolean }) {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {(home ? PLAYBOOK_DATA.slice(0, 4) : PLAYBOOK_DATA)
           .sort((a, b) => a.title.localeCompare(b.title))
           .map((playbook: IPlaybook, i: number) => (
@@ -58,7 +59,7 @@ export function PlaybookSection({ home = false }: { home?: boolean }) {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="mt-6 flex items-center justify-center">
+          className="mt-6 mb-2 flex items-center justify-center">
           <PrimaryButton
             as="a"
             variant="secondary"
@@ -69,6 +70,6 @@ export function PlaybookSection({ home = false }: { home?: boolean }) {
           </PrimaryButton>
         </motion.div>
       )}
-    </section>
+    </Section>
   );
 }

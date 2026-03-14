@@ -6,9 +6,9 @@ import { motion } from "motion/react";
 
 export function SetupList() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
       {SETUP_DATA.map((category, categoryIndex) => (
-        <section key={category.title} className="space-y-6">
+        <section key={category.title} className="space-y-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
