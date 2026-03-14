@@ -55,66 +55,65 @@ export function Navbar() {
   if (!mounted) return null;
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 flex justify-center">
+    <header className="bg-background fixed top-0 right-0 left-0 z-50 flex justify-center pt-2">
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           "relative flex items-center justify-between px-4 py-2.5 transition-all duration-500",
-          "bg-background w-full max-w-4xl backdrop-blur-md"
+          "bg-background w-full max-w-4xl backdrop-blur-md",
+          "border-edge border-x",
+          "screen-line-before screen-line-after"
         )}>
         <Profile />
 
-        {/* Desktop Navigation */}
-        <div className="border-border/60 hidden items-center gap-1 border p-1 backdrop-blur-md md:flex">
-          {menuItems.map((item, index) => {
-            const isActive = isActiveLink(pathname, item.href);
-            const isMoving =
-              (hoveredIndex ?? (isActive ? index : -1)) === index;
-
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={cn(
-                  "relative cursor-pointer px-4 py-1.5 text-xs font-medium tracking-widest uppercase transition-all duration-300",
-                  isMoving
-                    ? "text-primary"
-                    : "text-muted-primary hover:text-primary"
-                )}>
-                <span className="relative z-10">{item.label}</span>
-                {isMoving && (
-                  <motion.div
-                    layoutId="nav-active"
-                    className="bg-muted group absolute inset-0 border-[1.5px] border-neutral-500/40"
-                    transition={{
-                      type: "spring",
-                      bounce: 0.25,
-                      duration: 0.5
-                    }}>
-                    <CornerMarkers
-                      offset={7}
-                      hoverOffset={0}
-                      className="text-primary"
-                    />
-                  </motion.div>
-                )}
-              </Link>
-            );
-          })}
-          <CornerMarkers offset={7} hoverOffset={0} />
-        </div>
-
-        {/* Desktop Controls */}
         <div className="flex items-center gap-3">
+          <div className="border-border/60 hidden items-center gap-1 border p-1 backdrop-blur-md md:flex">
+            {menuItems.map((item, index) => {
+              const isActive = isActiveLink(pathname, item.href);
+              const isMoving =
+                (hoveredIndex ?? (isActive ? index : -1)) === index;
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className={cn(
+                    "relative cursor-pointer px-4 py-1.5 text-xs font-medium tracking-widest uppercase transition-all duration-300",
+                    isMoving
+                      ? "text-primary"
+                      : "text-muted-primary hover:text-primary"
+                  )}>
+                  <span className="relative z-10">{item.label}</span>
+                  {isMoving && (
+                    <motion.div
+                      layoutId="nav-active"
+                      className="bg-muted group absolute inset-0 border-[1.5px] border-neutral-500/40"
+                      transition={{
+                        type: "spring",
+                        bounce: 0.25,
+                        duration: 0.5
+                      }}>
+                      <CornerMarkers
+                        offset={7}
+                        hoverOffset={0}
+                        className="text-primary"
+                      />
+                    </motion.div>
+                  )}
+                </Link>
+              );
+            })}
+            <CornerMarkers offset={7} hoverOffset={0} />
+          </div>
           <SearchCommand />
           <PrimaryButton
-            variant="default"
+            variant="secondary"
             as="a"
-            href={`${GITHUB_URL}/akkal-dhami` as Route}
+            href={`${GITHUB_URL}/personal-portfolio` as Route}
             target="_blank"
             className="relative px-2 py-2 transition-colors">
             <SiGithub className="size-5" />
@@ -140,15 +139,15 @@ export function Navbar() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setMobileMenuOpen(false)}
-                className="bg-background/60 fixed inset-0 z-40 h-screen backdrop-blur-sm md:hidden"
+                className="bg-background/60 fixed inset-0 z-50 backdrop-blur-sm md:hidden"
               />
               <motion.div
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="bg-background border-border fixed top-0 right-0 bottom-0 z-50 h-screen w-70 overflow-y-auto border-l md:hidden">
-                <div className="flex h-full flex-col p-6">
+                className="bg-background border-border fixed top-0 right-0 bottom-0 z-60 h-screen w-70 overflow-y-auto border-l md:hidden">
+                <div className="bg-background flex h-full flex-col p-6">
                   <div className="mb-8 flex items-center justify-between">
                     <span className="text-muted-foreground text-xs font-medium tracking-[0.2em] uppercase">
                       Menu

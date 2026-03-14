@@ -1,19 +1,27 @@
 import { Axe } from "lucide-react";
 import Link from "next/link";
-import { CornerMarkers } from "@/components/ui/corner-markers";
 import { Profile } from "./profile";
 import { Route } from "next";
 import { GITHUB_URL, NAME } from "@/lib/constants";
-import { SocialLinks } from "../home/social-link";
+import { SocialLinks } from "@/components/home/social-link";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <>
-      <footer className="mt-20 px-4 pb-6">
-        <div className="border-border/40 relative border-t px-2 py-6">
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-12">
+      <footer
+        className={cn(
+          "bg-background relative z-10 w-full max-w-svw overflow-x-hidden pt-0 pb-2"
+        )}>
+        <div
+          className={cn(
+            "relative mx-auto w-full max-w-4xl px-4 py-4",
+            "screen-line-before screen-line-after",
+            "border-edge border-x"
+          )}>
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-8">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <Profile />
@@ -83,16 +91,8 @@ export function Footer() {
               </Link>
             </div>
           </div>
-
-          <CornerMarkers
-            size={18}
-            offset={5}
-            hoverOffset={0}
-            className="text-primary"
-          />
         </div>
       </footer>
-      <div className="pb-16" />
     </>
   );
 }
