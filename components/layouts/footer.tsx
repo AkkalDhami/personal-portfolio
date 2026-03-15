@@ -21,7 +21,7 @@ export function Footer() {
             "screen-line-before screen-line-after",
             "border-edge border-x"
           )}>
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-8">
+          <div className="mb-8 flex flex-wrap justify-between gap-8">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <Profile />

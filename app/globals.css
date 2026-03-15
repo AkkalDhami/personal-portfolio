@@ -259,14 +259,6 @@ html {
   @apply before:bg-edge relative before:absolute before:top-0 before:-left-[100vw] before:-z-1 before:h-px before:w-[200vw];
 }
 
-@utility hor-before {
-  @apply before:absolute before:h-full before:w-12 before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56;
-}
-
-@utility hor-after {
-  @apply after:absolute after:h-full after:w-12 after:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] after:bg-size-[10px_10px] after:[--pattern-foreground:var(--color-edge)]/56;
-}
-
 @utility screen-line-after {
   @apply after:bg-edge relative after:absolute after:bottom-0 after:-left-[100vw] after:-z-1 after:h-px after:w-[200vw];
 }
