@@ -2,7 +2,7 @@
 
 Built with modern web technologies, it features a clean, responsive design and interactive elements.
 
-![Hero image]('/images/og.png')
+![Hero image](./public/images/og.png)
 
 ## 🚀 Tech Stack
 
