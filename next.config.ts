@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/docs",
-        destination: "/docs/backend-fundamentals",
+        destination: "/docs/backend-fundamentals-01",
         permanent: true
       }
     ];

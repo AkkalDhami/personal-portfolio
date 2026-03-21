@@ -29,8 +29,8 @@ Clients can cache responses. Responses must define themselves as cacheable or no
 
 URLs should represent resources, not actions. Use nouns instead of verbs.
 
-- **Bad**: <Code children={"/api/getUsers"} /> , <Code children={"/api/create_user"} /> ❌
-- **Good**: <Code children={"/api/users"} /> , <Code children={"/api/users/:id"} /> ✅
+- **Bad**: <Code>/api/getUsers</Code> , <Code>/api/create_user </Code>❌
+- **Good**: <Code>/api/users</Code>, <Code>/api/users/:id</Code> ✅
 
 <Note text="REST APIs use nouns in URLs and actions are defined by HTTP methods." />
 
