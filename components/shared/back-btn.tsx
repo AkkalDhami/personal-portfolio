@@ -18,7 +18,7 @@ export function BackButton() {
         <ArrowLeft className="transition-all group-hover:-translate-x-1" /> Go
         Back
       </div>
-      <CornerMarkers offset={7} hoverOffset={6} className="text-primary" />
+      <CornerMarkers offset={7.5} hoverOffset={6} className="text-primary" />
     </PrimaryButton>
   );
 }

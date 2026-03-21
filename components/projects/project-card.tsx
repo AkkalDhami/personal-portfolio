@@ -82,7 +82,7 @@ export function ProjectCard({
             </div>
           </div>
         </div>
-        <CornerMarkers offset={7} hoverOffset={8} className="text-primary" />
+        <CornerMarkers offset={7.5} hoverOffset={8} className="text-primary" />
       </motion.div>
     );
   }
@@ -251,7 +251,7 @@ export function ProjectLinks({
                     className={linkClassName}>
                     <LinkIcon className="size-4" />
                     <CornerMarkers
-                      offset={7.5}
+                      offset={7.2}
                       hoverOffset={0}
                       className="text-muted-primary"
                     />
@@ -276,7 +276,7 @@ export function ProjectLinks({
                     className={linkClassName}>
                     <SiGithub className="size-4" />
                     <CornerMarkers
-                      offset={7.5}
+                      offset={7.3}
                       hoverOffset={0}
                       className="text-muted-primary"
                     />

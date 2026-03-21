@@ -71,7 +71,7 @@ export default async function Page(props: PageProps<"/projects/[slug]">) {
               <ChevronLeft className="size-5" /> Previous Project
             </div>
             <CornerMarkers
-              offset={7}
+              offset={7.5}
               hoverOffset={6}
               className="text-primary"
             />
@@ -88,7 +88,7 @@ export default async function Page(props: PageProps<"/projects/[slug]">) {
               Next Project <ChevronRight className="size-5" />
             </div>
             <CornerMarkers
-              offset={7}
+              offset={7.5}
               hoverOffset={6}
               className="text-primary"
             />

@@ -68,7 +68,7 @@ function TabsList({
         `
             }}>
             <CornerMarkers
-              offset={7}
+              offset={7.5}
               hoverOffset={0}
               className="text-white group-hover:text-white"
             />

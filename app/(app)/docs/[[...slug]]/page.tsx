@@ -173,7 +173,7 @@ const NextSteps = ({
             <ArrowLeftIcon className="size-4" />
             {!min && <span className="hidden sm:inline"> {prev.title}</span>}
           </div>
-          <CornerMarkers offset={7} hoverOffset={4} />
+          <CornerMarkers offset={7.5} hoverOffset={4} />
         </PrimaryButton>
       )}
       {next && (
@@ -191,7 +191,7 @@ const NextSteps = ({
               {!min && <span className="hidden sm:inline"> {next.title}</span>}
               <ArrowRightIcon className="size-4" />
             </div>
-            <CornerMarkers offset={7} hoverOffset={4} />
+            <CornerMarkers offset={7.5} hoverOffset={4} />
           </PrimaryButton>
         </div>
       )}

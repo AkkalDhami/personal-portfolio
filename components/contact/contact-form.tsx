@@ -173,7 +173,7 @@ export function ContactForm() {
             <Send className="h-4 w-4" />
           )}
           {isPending ? "Sending..." : "Send Message"}
-          <CornerMarkers offset={7} hoverOffset={6} key={"primary-button"} />
+          <CornerMarkers offset={7.5} hoverOffset={6} key={"primary-button"} />
         </div>
       </PrimaryButton>
     </form>

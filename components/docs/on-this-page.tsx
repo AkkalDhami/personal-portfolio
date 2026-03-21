@@ -96,7 +96,7 @@ export function OnThisPage() {
         )}
       </div>
 
-      <CornerMarkers offset={7} hoverOffset={5} />
+      <CornerMarkers offset={7.5} hoverOffset={5} />
 
       {open && (
         <ul className="list-inside list-none space-y-2 text-sm">

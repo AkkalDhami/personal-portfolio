@@ -29,7 +29,7 @@ export function SkillCategoryCard({ description, title, stacks }: ICategory) {
           </div>
         </div>
         <CornerMarkers
-          offset={8}
+          offset={7.3}
           hoverOffset={0}
           key={title}
           className="text-primary"

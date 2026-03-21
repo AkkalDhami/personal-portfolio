@@ -14,7 +14,7 @@ export function ContactCta() {
       viewport={{ once: true }}
       className="relative text-center">
       <div className="border p-8 md:p-12">
-        <Heading className="mb-4 text-xl font-bold md:text-2xl">
+        <Heading className="mb-4 text-xl font-medium md:text-2xl">
           Ready to Start Your Project?
         </Heading>
         <SubHeading
@@ -26,11 +26,15 @@ export function ContactCta() {
         <div className="mt-4 flex flex-col justify-center gap-4 sm:flex-row">
           <PrimaryButton as="a" href={`mailto:${EMAIL}`} className="py-3">
             Send Email
-            <CornerMarkers offset={7} hoverOffset={7} key={"primary-button"} />
+            <CornerMarkers
+              offset={7.5}
+              hoverOffset={7}
+              key={"primary-button"}
+            />
           </PrimaryButton>
         </div>
       </div>
-      <CornerMarkers offset={7} hoverOffset={0} className="text-primary" />
+      <CornerMarkers offset={7.5} hoverOffset={0} className="text-primary" />
     </motion.div>
   );
 }

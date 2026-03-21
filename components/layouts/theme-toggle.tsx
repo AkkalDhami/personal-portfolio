@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { CornerMarkers } from "@/components/ui/corner-markers";
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const { systemTheme, theme, setTheme } = useTheme();
 
   const currentTheme = theme === "system" ? systemTheme : theme;
@@ -21,7 +21,8 @@ export function ThemeToggle() {
       className={cn(
         "group rounded-0 relative size-9 cursor-pointer border-[1.5px] px-2 py-1.5 transition-colors duration-300",
         "from-background to-card-hover hover:bg-secondary/80 border border-neutral-200 bg-linear-to-r dark:border-neutral-800",
-        "flex items-center justify-center"
+        "flex items-center justify-center sm:hidden",
+        className
       )}
       aria-label="Toggle theme">
       <AnimatePresence mode="wait" initial={false}>

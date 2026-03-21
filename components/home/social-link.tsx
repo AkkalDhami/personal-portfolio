@@ -72,7 +72,7 @@ export function SocialLinks({
                     target="_blank"
                     className="group relative px-1.5 py-1">
                     <link.icon className="text-muted-primary group-hover:text-primary size-6" />
-                    <CornerMarkers offset={7} hoverOffset={4} />
+                    <CornerMarkers offset={7.5} hoverOffset={4} />
                   </PrimaryButton>
                 }></TooltipTrigger>
               <TooltipContent>
@@ -99,7 +99,7 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             className="hover:bg-card-hover group primary-border relative flex w-full items-center gap-3 rounded-none border-[1.5px] px-3 py-3 text-center">
-            <CornerMarkers offset={7} hoverOffset={6} />
+            <CornerMarkers offset={7.5} hoverOffset={6} />
             <div className="sm:p-1">
               <social.icon className="text-muted-foreground group-hover:text-primary size-5 sm:size-6" />
             </div>

@@ -21,7 +21,7 @@ export function TechBadge({
       {children}
 
       <CornerMarkers
-        offset={7}
+        offset={7.5}
         hoverOffset={0}
         className="group-hover:text-muted-foreground"
         key={"primary-button"}

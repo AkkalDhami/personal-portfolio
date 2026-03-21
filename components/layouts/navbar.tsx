@@ -16,6 +16,7 @@ import { GITHUB_URL, NAME } from "@/lib/constants";
 import { SiGithub } from "react-icons/si";
 import { SearchCommand } from "@/components/home/search-command";
 import { AnimatedThemeToggle } from "./animated-theme-toggle";
+import { ThemeToggle } from "./theme-toggle";
 
 interface MenuItem {
   label: string;
@@ -98,7 +99,7 @@ export function Navbar() {
                         duration: 0.5
                       }}>
                       <CornerMarkers
-                        offset={7}
+                        offset={7.5}
                         hoverOffset={0}
                         className="text-primary"
                       />
@@ -107,7 +108,7 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <CornerMarkers offset={7} hoverOffset={0} />
+            <CornerMarkers offset={7.5} hoverOffset={0} />
           </div>
           <SearchCommand />
           <PrimaryButton
@@ -118,16 +119,24 @@ export function Navbar() {
             className="relative px-2 py-2 transition-colors">
             <SiGithub className="size-5" />
 
-            <CornerMarkers offset={7} hoverOffset={4} key={"primary-button"} />
+            <CornerMarkers
+              offset={7.5}
+              hoverOffset={4}
+              key={"primary-button"}
+            />
           </PrimaryButton>
-          <AnimatedThemeToggle duration={500} />
-          {/* <ThemeToggle /> */}
+          <AnimatedThemeToggle duration={500} className="hidden sm:flex" />
+          <ThemeToggle className="flex sm:hidden" />
           <PrimaryButton
             variant="secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="relative px-2 py-1.5 transition-colors md:hidden">
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-            <CornerMarkers offset={7} hoverOffset={3} key={"primary-button"} />
+            <CornerMarkers
+              offset={7.5}
+              hoverOffset={3}
+              key={"primary-button"}
+            />
           </PrimaryButton>
         </div>
 

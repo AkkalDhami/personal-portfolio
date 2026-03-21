@@ -72,7 +72,7 @@ export const TEMPLATE_DATA: ITemplate[] = [
       "A full-stack portfolio template built with the MERN stack, designed to showcase scalable projects and real-world applications.",
     thumbnail: "/assets/templates/temp-3.png",
     githubUrl: `${GITHUB_URL}/MERN-Portfolio`,
-    liveUrl: "https://akkaldhami.vercel.app",
+    liveUrl: "",
     technologies: [
       { name: "React" },
       { name: "TypeScript" },

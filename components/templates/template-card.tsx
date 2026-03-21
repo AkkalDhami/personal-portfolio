@@ -69,7 +69,7 @@ export function TemplateCard({ template }: { template: ITemplate }) {
           </div>
         </div>
       </div>
-      <CornerMarkers offset={7} hoverOffset={8} className="text-primary" />
+      <CornerMarkers offset={7.3} hoverOffset={8} className="text-primary" />
     </motion.div>
   );
 }
@@ -93,7 +93,7 @@ export function Links({ template }: { template: ITemplate }) {
                   className={linkClassName}>
                   <LinkIcon className="size-4" />
                   <CornerMarkers
-                    offset={7}
+                    offset={7.5}
                     hoverOffset={0}
                     className="group-hover:text-muted-foreground"
                   />
@@ -118,7 +118,7 @@ export function Links({ template }: { template: ITemplate }) {
                   className={linkClassName}>
                   <SiGithub className="size-4" />
                   <CornerMarkers
-                    offset={7}
+                    offset={7.3}
                     hoverOffset={0}
                     className="group-hover:text-muted-foreground"
                   />

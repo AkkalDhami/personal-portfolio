@@ -16,7 +16,7 @@ interface CornerMarkersProps {
 export function CornerMarkers({
   className,
   size = 20,
-  offset = 8,
+  offset = 7.5,
   hoverOffset = 4
 }: CornerMarkersProps) {
   const isSizeString = typeof size === "string" && size.includes("-");

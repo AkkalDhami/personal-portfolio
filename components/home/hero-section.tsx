@@ -93,8 +93,8 @@ export function HeroSection() {
               className="rounded-primary w-full py-3.5 sm:w-auto">
               View My Work
               <CornerMarkers
-                offset={7}
-                hoverOffset={7}
+                offset={7.5}
+                hoverOffset={6}
                 key={"primary-button"}
               />
             </PrimaryButton>
@@ -106,11 +106,7 @@ export function HeroSection() {
               href={"/resume.pdf" as Route}
               className="rounded-primary w-full py-3.5 sm:w-auto">
               View My Resume
-              <CornerMarkers
-                offset={7}
-                hoverOffset={7}
-                key={"primary-button"}
-              />
+              <CornerMarkers offset={7.5} hoverOffset={6} />
             </PrimaryButton>
           </motion.div>
           <div className="mt-3">

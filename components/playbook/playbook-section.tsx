@@ -46,11 +46,11 @@ export function PlaybookSection({ home = false }: { home?: boolean }) {
         whileInView="animate"
         viewport={{ once: true }}
         className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {(home ? PLAYBOOK_DATA.slice(0, 4) : PLAYBOOK_DATA)
-          .sort((a, b) => a.title.localeCompare(b.title))
-          .map((playbook: IPlaybook, i: number) => (
+        {(home ? PLAYBOOK_DATA.slice(0, 4) : PLAYBOOK_DATA).map(
+          (playbook: IPlaybook, i: number) => (
             <PlaybookCard data={playbook} i={i} key={playbook.slug} />
-          ))}
+          )
+        )}
       </motion.div>
 
       {home && (

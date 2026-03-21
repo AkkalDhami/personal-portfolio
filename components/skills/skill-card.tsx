@@ -35,7 +35,7 @@ function SkillCard({ skill, index }: { skill: IStack; index: number }) {
         {skill.label}
       </span>
       <CornerMarkers
-        offset={7}
+        offset={7.3}
         hoverOffset={0}
         className="group-hover:text-muted-foreground"
       />

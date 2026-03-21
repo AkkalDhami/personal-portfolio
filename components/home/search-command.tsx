@@ -222,7 +222,11 @@ export function SearchCommand() {
           <PrimaryButton
             variant="outline"
             className="relative px-2 py-2 transition-colors">
-            <CornerMarkers offset={7} hoverOffset={4} key={"primary-button"} />
+            <CornerMarkers
+              offset={7.5}
+              hoverOffset={4}
+              key={"primary-button"}
+            />
             <KbdGroup>
               <Kbd>⌘</Kbd>
               <Kbd>K</Kbd>
@@ -230,7 +234,7 @@ export function SearchCommand() {
           </PrimaryButton>
         }></CommandDialogTrigger>
       <CommandDialogPopup className={"group relative"}>
-        <CornerMarkers offset={7} hoverOffset={8} key={"primary-button"} />
+        <CornerMarkers offset={7.5} hoverOffset={8} key={"primary-button"} />
         <Command items={groupedItems}>
           <CommandInput placeholder="Search for apps and commands..." />
           <CommandPanel>

@@ -12,7 +12,7 @@ export function Profile() {
         height={50}
         className="size-10 rounded-none object-cover object-left p-0.5"
       />
-      <CornerMarkers offset={6} hoverOffset={2} />
+      <CornerMarkers offset={5} hoverOffset={4} />
     </Link>
   );
 }

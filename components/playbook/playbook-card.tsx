@@ -17,7 +17,7 @@ export function PlaybookCard({ data, i }: { data: IPlaybook; i: number }) {
       {data.description && (
         <p className="text-muted-foreground line-clamp-3">{data.description}</p>
       )}
-      <CornerMarkers offset={8} hoverOffset={6} key={data.slug} />
+      <CornerMarkers offset={7.5} hoverOffset={6} key={data.slug} />
     </motion.a>
   );
 }

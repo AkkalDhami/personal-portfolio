@@ -134,7 +134,7 @@ export function GitHubContributionGraph({
             </ContributionGraphFooter>
           </ContributionGraph>
         )}
-        <CornerMarkers offset={7} hoverOffset={6} />
+        <CornerMarkers offset={7.5} hoverOffset={6} />
       </div>
     </motion.div>
   );
