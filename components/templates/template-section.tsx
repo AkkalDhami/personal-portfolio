@@ -35,7 +35,23 @@ export const TEMPLATE_DATA: ITemplate[] = [
       { name: "Nextjs" },
       { name: "React" },
       { name: "TypeScript" },
-      { name: "Tailwind" }
+      { name: "Tailwind" },
+      { name: "Shadcn" }
+    ]
+  },
+  {
+    title: "Minimalistic Portfolio",
+    description:
+      "A modern clean minimal portfolio showcasing scalable web applications, developer tools, and reusable systems, with a focus on clean UI, performance, and developer experience.",
+    thumbnail: "/assets/templates/temp-7.png",
+    githubUrl: `${GITHUB_URL}/akkal-portfolio`,
+    liveUrl: "https://akkaldhami.com.np",
+    technologies: [
+      { name: "Nextjs" },
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "Tailwind" },
+      { name: "Shadcn" }
     ]
   },
   {

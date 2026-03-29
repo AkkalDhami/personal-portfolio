@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
       "/images/hero.png",
       "/images/hero.png"
     ],
-    liveUrl: "https://servercn.vercel.app/",
+    liveUrl: "https://servercn.xyz",
     githubUrl: "https://github.com/akkaldhami/servercn",
     features: [
       "Component-First Backend",
