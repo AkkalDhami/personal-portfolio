@@ -17,4 +17,4 @@ This project is built using the latest web development tools and libraries:
 - **Fonts**: [Geist](https://vercel.com/font) & [Inter](https://fonts.google.com/specimen/Inter)
 - **Theming**: [Next Themes](https://github.com/pacocoursey/next-themes) (Dark/Light mode)
 
-Built with 🪓 by [Akkal Dhami](https://github.com/akkal-dhami)
+Built with 🪓 by [Akkal Dhami](https://github.com/akkaldhami)

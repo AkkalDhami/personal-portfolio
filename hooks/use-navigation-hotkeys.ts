@@ -3,7 +3,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Route } from "next";
-import { GITHUB_URL, LINKEDIN_URL, X_URL } from "@/lib/constants";
+import {
+  DAILY_DEV_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  X_URL
+} from "@/lib/constants";
 
 type HotkeyMap = Record<string, string>;
 
@@ -19,13 +24,16 @@ export function useNavigationHotkeys(options: Options = {}) {
     routes = {
       h: "/",
       p: "/projects",
+      e: "/#skills",
       c: "/contacts",
       s: "/dev-setup",
       b: "/playbook",
       t: "/templates",
       g: GITHUB_URL,
+      y: `${GITHUB_URL}/personal-portfolio`,
       x: X_URL,
-      l: LINKEDIN_URL
+      l: LINKEDIN_URL,
+      z: DAILY_DEV_URL
     },
     requireShift = false
   } = options;
@@ -49,7 +57,15 @@ export function useNavigationHotkeys(options: Options = {}) {
       if (!path) return;
 
       e.preventDefault();
-      if ([GITHUB_URL, X_URL, LINKEDIN_URL].includes(path)) {
+      if (
+        [
+          GITHUB_URL,
+          X_URL,
+          LINKEDIN_URL,
+          DAILY_DEV_URL,
+          `${GITHUB_URL}/personal-portfolio`
+        ].includes(path)
+      ) {
         window.open(path, "_blank");
         return;
       }
