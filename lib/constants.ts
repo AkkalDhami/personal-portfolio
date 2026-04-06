@@ -1,6 +1,6 @@
 export const GITHUB_USERNAME = "akkaldhami";
 
-export const X_USERNAME = "aavashdhami2127";
+export const X_USERNAME = "_akkal_dhami";
 
 export const LINKEDIN_USERNAME = "akkal-dhami";
 
@@ -26,6 +26,5 @@ export const NAME = "Akkal Dhami";
 export const LOCATION = "Kathmandu, Nepal";
 
 export const CODE_THEME_BG = "#101010";
-// export const CODE_THEME_BG = "#0b0e14";
 
 export const DEFAULT_CODE_THEME = "vesper";
